@@ -111,7 +111,7 @@ Migrations can be created using the follow rails commands
 rails generate migration add_FIELDNAME_to_TABLENAME FIELDNAME:string
 ```
 
-Replace `FIELDNAME` with the name of the field you're adding and replace `TABLENAME` with the table you'd like to add the field to. The table should be pluralized. IE users and not user.
+Replace `FIELDNAME` with the name of the field you're adding and replace `TABLENAME` with the table you'd like to add the field to. The table should be pluralized. ex. `users` and not `user`.
 
 Always run `bin/rails db:migrate` after a migration has been created.
 
