@@ -4,7 +4,7 @@ This app is a boilerplate designed to get you up and going with development in a
 Utilizing Ruby on Rails in the backend and React in the frontend.
 Communication between the two will be Graphql.
 
-## Ruby Installation
+# Ruby Installation
 Use `rbenv` to install the Ruby version specified in `.ruby-version`
 
 ```sh
@@ -16,7 +16,7 @@ Run bundler to install all the dependencies.
 bundle
 ```
 
-## Postgresql
+# Postgresql
 Use homebrew to install postgresql 12
 ```sh
 brew install postgresql@12
@@ -38,7 +38,7 @@ If postgres was installed correctly, you should be able to run the seed file
 bin/rails db:seed
 ```
 
-## Javascript dependencies
+# Javascript dependencies
 Install NVM
 ```shell
 brew install nvm
@@ -58,7 +58,7 @@ cd frontend
 yarn install
 ```
 
-## Starting the server
+# Starting the server
 Backend server
 ```shell
 rails s
@@ -77,7 +77,7 @@ To login, you will need to confirm your account. Emails are locally served via `
 Once registered, enter the rails console using command `bin/rails c` and change your user to an admin
 `User.last.update(admin: true)`
 
-## Working with Graphql
+# Working with Graphql
 The official documentation is very helpful in understanding basic gql principles and can be found here:
 https://graphql.org/learn/queries/
 
@@ -87,5 +87,32 @@ https://graphql-ruby.org/schema/generators
 `graphiql gem` has been installed to provide easy testing for queries and mutations and can be accessed in development at the following url
 http://localhost:3000/graphiql
 
-## Handling emails
+# Handling emails
 Development emails are handled via `mailcatcher gem`. To find local emails, you can run `mailcatcher` in the console. This will turn on the smtp server which is locally served at `http://127.0.0.1:1080`.
+
+# Working with Models and Migrations
+## - Generating a model
+Rails generators can assist in the creation of a model.
+
+Type the following into console to generate a model.
+```shell
+  rails generate model User username:string password:string age:integer
+```
+
+You'll notice a new migration file has been created. `bin/rails db:migrate` will run the migrations.
+
+We use the `annotate gem` to create automatic annotations to the models. Run `annotate --models` after making changes to it to automatically create the annotations on the models.
+
+## - Creating a migration
+To add fields to an existing model, the best way to go about it is to create migrations. Never add the fields manually!
+
+Migrations can be created using the follow rails commands
+```shell
+rails generate migration add_FIELDNAME_to_TABLENAME FIELDNAME:string
+```
+
+Replace `FIELDNAME` with the name of the field you're adding and replace `TABLENAME` with the table you'd like to add the field to. The table should be pluralized. IE users and not user.
+
+Always run `bin/rails db:migrate` after a migration has been created.
+
+Run `annotate --models` after making changes to it to automatically create the annotations on the models.
