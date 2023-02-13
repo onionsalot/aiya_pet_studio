@@ -72,7 +72,7 @@ npm start
 ```
 If all looks good and the Dashboard is showing products, navigate to the Auth page and register and account.
 
-To login, you will need to confirm your account. Emails are locally served via `mailcatcher`. Click to open [Handling emails](#handling-emails)
+To login, you will need to confirm your account. Emails are locally served via `mailcatcher`. Information on handling emails can be found by clicking on the following section => [Handling emails](#handling-emails)
 
 Once registered, enter the rails console using command `bin/rails c` and change your user to an admin
 `User.last.update(admin: true)`
