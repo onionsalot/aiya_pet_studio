@@ -128,7 +128,17 @@ https://graphql-ruby.org/schema/generators
 http://localhost:3000/graphiql
 
 # Handling emails
-Development emails are handled via `mailcatcher gem`. To find local emails, you can run `mailcatcher` in the console. This will turn on the smtp server which is locally served at `http://127.0.0.1:1080`.
+Development emails are handled via `mailcatcher`.
+
+To install `mailcatcher` on Macs
+```shell
+brew install mailcatcher
+```
+Ensure the `mailcatcher` service is running prior to testing (will need to check again on restarting computer)
+```shell
+brew services restart mailcatcher
+```
+This will turn on the smtp server which is locally served at `http://127.0.0.1:1080`.
 
 # Working with Models and Migrations
 ## - Generating a model
