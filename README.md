@@ -5,13 +5,30 @@ Utilizing Ruby on Rails in the backend and React in the frontend.
 Communication between the two will be Graphql.
 
 # Ruby Installation
-Use `rbenv` to install the Ruby version specified in `.ruby-version`
-
+`rbenv` is installed using the following command
 ```sh
-rbenv install 2.7.6
+brew install rbenv
 ```
 
-Run bundler to install all the dependencies.
+Add `rbenv` to your bash or zshell using 
+```sh
+rbenv init #follow the directions this command presents
+```
+
+Use `rbenv` to install the Ruby version specified in `.ruby-version`
+```sh
+rbenv install 2.7.7
+```
+
+Ensure that `rbenv` version is correct by typing
+```sh
+rbenv local 2.7.7
+```
+
+COMPLETELY RESTART YOUR TERMINAL ****
+- Do this by right click, exiting the terminal to completely close the session
+
+Run bundler to install all the dependencies inside of the project directory.
 ```sh
 bundle
 ```
@@ -33,8 +50,10 @@ Create your app user
 ```sh
 createuser -s aiya_pet_studio
 ```
-If postgres was installed correctly, you should be able to run the seed file
+If postgres was installed correctly, you should be able to create the database and run the seed file
 ```sh
+bin/rails db:create
+bin/rails db:migrate
 bin/rails db:seed
 ```
 
@@ -43,6 +62,27 @@ Install NVM
 ```shell
 brew install nvm
 ```
+
+Create a directory for NVM
+```shell
+mkdir ~/.nvm
+```
+
+Edit your bash profile or zshrc on Catalina or newer
+```shell
+vim ~/.zshrc or vim ~/.bash_profile
+```
+Add the below lines to the bottom of the vim file
+```shell
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+```
+
+Do a one-time load of the variables
+```shell
+source ~/.zshrc
+```
+
 Installing Node using nvm
 ```shell
 nvm install 18.9.0
@@ -50,7 +90,7 @@ node -v
 ```
 Install Yarn
 ```shell
-nvm install --global yarn
+npm install --global yarn
 ```
 CD into the frontend directory and install dependencies
 ```shell
@@ -59,12 +99,12 @@ yarn install
 ```
 
 # Starting the server
-Backend server
+Backend server (In Base directory)
 ```shell
 rails s
 # served at localhost:3000
 ```
-Frontend server
+Frontend server(In frontend directory)
 ```shell
 cd frontend
 npm start
