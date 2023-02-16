@@ -20,7 +20,7 @@ module Mutations
 
         { product: product }
       rescue StandardError => e
-        raise GraphQL::ExecutionError.new e || "Error deleting product"
+        raise GraphQL::ExecutionError.new e || "Error updating product"
       end
     end
   end
