@@ -4,7 +4,7 @@
 #
 #  id                     :bigint           not null, primary key
 #  encrypted_password     :string           default(""), not null
-#  full_name              :string           default(""), not null
+#  first_name             :string           default(""), not null
 #  email                  :string           default(""), not null
 #  address                :string           default(""), not null
 #  admin                  :boolean          default(FALSE), not null
@@ -22,6 +22,9 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  middle_name            :string
+#  last_name              :string
+#  gender                 :integer          default("unknown")
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
@@ -29,4 +32,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :trackable
+  enum :gender, [:woman, :man, :transgender, :non_binary, :unknown]
+  
+  def full_name
+    [first_name, middle_name, last_name].compact.join(' ')
+  end
 end

@@ -4,7 +4,7 @@
 #
 #  id                     :bigint           not null, primary key
 #  encrypted_password     :string           default(""), not null
-#  full_name              :string           default(""), not null
+#  first_name             :string           default(""), not null
 #  email                  :string           default(""), not null
 #  address                :string           default(""), not null
 #  admin                  :boolean          default(FALSE), not null
@@ -22,6 +22,9 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  middle_name            :string
+#  last_name              :string
+#  gender                 :integer          default("unknown")
 #
 
 # This model initially had no columns defined. If you add columns to the
