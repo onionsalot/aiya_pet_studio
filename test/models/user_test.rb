@@ -6,7 +6,7 @@
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string           default(""), not null
 #  email                  :string           default(""), not null
-#  address                :string           default(""), not null
+#  address1               :string           default(""), not null
 #  admin                  :boolean          default(FALSE), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -25,6 +25,11 @@
 #  middle_name            :string
 #  last_name              :string
 #  gender                 :integer          default("unknown")
+#  address2               :string
+#  country                :string
+#  city                   :string
+#  state                  :string
+#  zipcode                :string
 #
 require "test_helper"
 
