@@ -12,11 +12,12 @@ const Login = () => {
     e.preventDefault()
     const formData = new FormData(formRef.current)
     const data = Object.fromEntries(formData)
+    const remember = data.remember_me === "on" ? true : false
     const userInfo = {
       user: {
         email: data.email,
         password: data.password,
-        remember_me: true
+        remember_me: remember
       }
     }
     signinUserMutation.mutate(
@@ -63,6 +64,8 @@ const Login = () => {
             Password:{" "}
             <input type="password" name="password" placeholder="password" required/>
             <br />
+            Remember Me:
+            <input type="checkbox" name="remember_me" ></input> 
             <input type="submit" value="Login" />
           </form>
           <br />
