@@ -91,13 +91,14 @@ const Registration = () => {
         <input type="email" name="email_confirm" placeholder="email" required />
         <br />
         Password:{" "}
-        <input type="password" name="password" placeholder="password" required />
+        <input type="password" name="password" placeholder="password" minlength="6" required />
         <br />
         Password Confirmation:{" "}
         <input
           type="password"
           name="password_confirmation"
           placeholder="Password Confirmation"
+          minlength="6"
           required
         />
         <br />
