@@ -1,5 +1,12 @@
-<p><%= t(:welcome).capitalize + ' ' + @email %>!</p>
+<div style="margin: 0 auto; text-align: center; border: 2px solid #6f59f0; border-radius: 10px; width: 450px; background-color: #f5f5fc;">
+    <div style="background-color: #6f59f0; color: white; font-size: 2rem; padding: 10px 0;">
+        AIYA PET STUDIO
+    </div>
+    <h2>Hello there!</h2>
+    
+    <p>You are almost ready to get started with your account at <br><span style="color: #6f59f0; font-weight: bold;">Aiya Pet Studio</span>.<br> Simply confirm your account and email by clicking the link below:</p>
 
-<p><%= t '.confirm_link_msg' %> </p>
+    <button style="border: 1px solid #2e52f2; padding: 6px 10px; border-radius: 7px; background-color: white;"><%= link_to 'Confirm my account', custom_confirmation_path(@resource, confirmation_token: @token) %></button>
 
-<p><%= link_to 'Confirm my account', custom_confirmation_path(@resource, confirmation_token: @token) %></p>
+    <p>Best regards, <br><span style="color: #6f59f0; font-weight: bold;">Aiya Pet Studio</span></p>
+</div>
