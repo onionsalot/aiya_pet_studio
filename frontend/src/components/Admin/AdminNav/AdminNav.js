@@ -21,7 +21,7 @@ const AdminNav = () => {
         <div>
           <label className="text-admin_main text-lg">{database} Object Management</label>
           <ul className="list-none p-1 pl-3">
-            <li><NavLink url="/admin/dashboard" text="Users"/></li>
+            <li><NavLink url="/admin/users" text="Users"/></li>
             <li><NavLink url="/admin/dashboard" text="Products"/></li>
             <li><NavLink url="/admin/dashboard" text="Tags"/></li>
             <li><NavLink url="/admin/dashboard" text="Categories"/></li>
