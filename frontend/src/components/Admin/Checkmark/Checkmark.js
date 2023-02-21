@@ -7,7 +7,6 @@ import {
 const Checkmark = ({ bool }) => {
   const checkBox = <FontAwesomeIcon icon={faSquareCheck} />;
   const xBox = <FontAwesomeIcon icon={faSquareXmark} />;
-  console.log(bool)
   return ( 
     <>
       {
