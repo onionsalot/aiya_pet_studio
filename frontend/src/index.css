@@ -1,10 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer components {
-
-  .admin-tables {
-    @apply border-2 border-gray-200
-  }
-}
