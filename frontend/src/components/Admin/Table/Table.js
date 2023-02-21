@@ -8,14 +8,15 @@ import {
   faArrowDownZA,
   faArrowRotateRight
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom"
 
-const Table = ({ columns, data }) => {
+const Table = ({ columns, data, path }) => {
   const right = <FontAwesomeIcon icon={faAnglesRight} />;
   const left = <FontAwesomeIcon icon={faAnglesLeft} />;
   const asc = <FontAwesomeIcon icon={faArrowUpAZ} />;
   const desc = <FontAwesomeIcon icon={faArrowDownZA} />;
   const reset = <FontAwesomeIcon icon={faArrowRotateRight} />;
-
+  const navigate = useNavigate()
   const {
     getTableProps,
     getTableBodyProps,
@@ -67,6 +68,10 @@ const Table = ({ columns, data }) => {
   const handleReset = () => {
     setSearchInput("")
     setAllFilters([])
+  }
+
+  const handleLink = (id) => {
+    navigate(id)
   }
 
   return (
@@ -192,7 +197,7 @@ const Table = ({ columns, data }) => {
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell) => {
                   return (
-                    <td className="admin-tables" {...cell.getCellProps()}>
+                    <td className="admin-tables cursor-pointer" {...cell.getCellProps()} onClick={() => handleLink(row.values.id)}>
                       {cell.render("Cell")}
                     </td>
                   );
