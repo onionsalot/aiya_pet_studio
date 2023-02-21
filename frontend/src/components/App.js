@@ -6,7 +6,9 @@ import DefaultToaster from '../lib/toaster'
 import { useCurrentUser } from "../hooks/user-hooks"
 
 function App() {
-  useCurrentUser()
+  const user = useCurrentUser()
+
+  if(user.isLoading) return <span>Loading...</span>
 
   return (
     <>
