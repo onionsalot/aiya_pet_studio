@@ -15,7 +15,7 @@ const AdminDashboard = () => {
   if (users.isLoading || products.isLoading) return <h1>Loading...</h1>
 
   return(
-    <>
+    <div className="bg-white h-full overflow-y-scroll">
       <h1>Admin Dashboard</h1>
       <h3>All Users -</h3>
       {
@@ -43,7 +43,7 @@ const AdminDashboard = () => {
           })
         )
       }
-    </>
+    </div>
   )
 }
 
