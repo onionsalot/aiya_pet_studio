@@ -30,7 +30,6 @@ const Registration = () => {
           zipcode: data.zipcode
         }
       }
-      console.log(userInfo)
       signupUserMutation.mutate(userInfo)
       e.target.reset()
     } else {
