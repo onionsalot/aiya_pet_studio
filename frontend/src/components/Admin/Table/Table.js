@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom"
 
-const Table = ({ columns, data, path }) => {
+const Table = ({ columns, data }) => {
   const right = <FontAwesomeIcon icon={faAnglesRight} />;
   const left = <FontAwesomeIcon icon={faAnglesLeft} />;
   const asc = <FontAwesomeIcon icon={faArrowUpAZ} />;
