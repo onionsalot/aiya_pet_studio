@@ -13,7 +13,7 @@ const AdminTitleBar = () => {
     return pathArr.map((path) => path.charAt(0).toUpperCase() + path.substring(1)).join(' > ')
   }
   return ( 
-    <div className="bg-admin_main h-[10%] flex flex-row p-4">
+    <div className="bg-admin_main h-[8%] flex flex-row p-4">
       <span className='text-2xl'> {getTitle()} </span>
       <span className="ml-auto"> User: {user.email} <Logout /> </span>
     </div>
