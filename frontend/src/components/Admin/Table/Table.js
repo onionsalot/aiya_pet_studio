@@ -1,11 +1,20 @@
 import { useTable, useFilters, useSortBy, usePagination } from "react-table";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAnglesRight, faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
+import { 
+  faAnglesRight,
+  faAnglesLeft,
+  faArrowUpAZ,
+  faArrowDownZA,
+  faArrowRotateRight
+} from "@fortawesome/free-solid-svg-icons";
 
 const Table = ({ columns, data }) => {
   const right = <FontAwesomeIcon icon={faAnglesRight} />;
   const left = <FontAwesomeIcon icon={faAnglesLeft} />;
+  const asc = <FontAwesomeIcon icon={faArrowUpAZ} />;
+  const desc = <FontAwesomeIcon icon={faArrowDownZA} />;
+  const reset = <FontAwesomeIcon icon={faArrowRotateRight} />;
 
   const {
     getTableProps,
@@ -23,11 +32,12 @@ const Table = ({ columns, data }) => {
     pageCount,
     setPageSize,
     prepareRow,
+    setAllFilters,
   } = useTable(
     {
       columns,
       data,
-      initialState: { pageIndex: 0 },
+      initialState: { pageIndex: 0, pageSize: 25 },
     },
     useFilters,
     useSortBy,
@@ -49,16 +59,16 @@ const Table = ({ columns, data }) => {
   };
 
   const getSearchChoices = () => {
-    if (!data) return [];
+    if (!data || columns.length === 0) return [];
 
-    return Object.keys(data[0]);
+    return columns[0].columns
   };
 
-  const normalizeText = (text) => {
-    const addedSpace = text.replace(/([A-Z])/g, " $1");
-    return addedSpace.charAt(0).toUpperCase() + addedSpace.slice(1);
-  };
-  console.log(columns[0]);
+  const handleReset = () => {
+    setSearchInput("")
+    setAllFilters([])
+  }
+
   return (
     <div className="m-2">
       <div className="flex flex-row justify-between">
@@ -76,12 +86,13 @@ const Table = ({ columns, data }) => {
           >
             {getSearchChoices().map((e, index) => {
               return (
-                <option key={index} value={e}>
-                  {normalizeText(e)}
+                <option key={index} value={e.accessor}>
+                  {e.Header}
                 </option>
               );
             })}
           </select>
+          <span onClick={handleReset} className="pl-3 hover:cursor-pointer select-none">{reset} Reset</span>
         </div>
 
         <div>
@@ -90,7 +101,7 @@ const Table = ({ columns, data }) => {
             onChange={(e) => setPageSize(Number(e.target.value))}
             className="admin-tables"
           >
-            {[10, 25, 50].map((pageSize) => (
+            {[25, 50, 100].map((pageSize) => (
               <option key={pageSize} value={pageSize}>
                 Show {pageSize}
               </option>
@@ -156,15 +167,16 @@ const Table = ({ columns, data }) => {
               {headerGroup.headers.map((column) => (
                 <th
                   {...column.getHeaderProps(column.getSortByToggleProps())}
-                  className={
+                  className="admin-tables select-none"
+                >
+                  {column.render("Header")} {" "}
+                  {
                     column.isSorted
                       ? column.isSortedDesc
-                        ? "admin-tables after:content-['⬇️']"
-                        : "admin-tables after:content-['⬆️']"
-                      : "admin-tables"
+                        ? desc
+                        : asc
+                      : ""
                   }
-                >
-                  {column.render("Header")}
                 </th>
               ))}
             </tr>
