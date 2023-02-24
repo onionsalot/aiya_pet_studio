@@ -4,10 +4,49 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
       /* Email styles need to be inline */
+      .header {
+        margin: 0 auto; 
+        text-align: center; 
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 10px; 
+        border-image: linear-gradient(to bottom, #826fe3, #fa8292) 30;
+        width: 450px; 
+        background-color: #f5f5fc;
+      }
+      .title {
+        background-color: #826fe3; 
+        color: white; 
+        font-size: 2rem; 
+        padding: 10px 0;
+      }
+      button {
+      border: none;  
+      padding: 6px 10px; 
+        border-radius: 7px; 
+        background-color: white;
+      }
+      .highlight {
+        color: #826fe3; 
+        font-weight: bold;
+      }
+      .email {
+        color: #fa8292;
+        font-weight: bold;
+      }
+
     </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <div class="title">
+          AIYA PET STUDIO
+      </div>
+      <div class="content"><%= content_for?(:content) ? yield(:content) : yield %></div>
+      <p>Best regards, <br>
+        <span class="highlight">Aiya Pet Studio</span>
+      </p>
+    </div>
   </body>
 </html>

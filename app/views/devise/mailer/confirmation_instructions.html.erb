@@ -1,5 +1,11 @@
-<p><%= t(:welcome).capitalize + ' ' + @email %>!</p>
+<% content_for :content do %>
+    <h3>Hello <span class="email"><%= @email %></span>!</h3>
+        
+    <p>You are almost ready to get started with your account at <br><span class="highlight">Aiya Pet Studio</span>.<br> Simply confirm your account and email by clicking the link below:</p>
 
-<p><%= t '.confirm_link_msg' %> </p>
+    <button><%= link_to 'Confirm my account', custom_confirmation_path(@resource, confirmation_token: @token) %></button>
 
-<p><%= link_to 'Confirm my account', custom_confirmation_path(@resource, confirmation_token: @token) %></p>
+    <%= yield %>
+
+<% end %>
+<%= render template: "layouts/mailer" %>

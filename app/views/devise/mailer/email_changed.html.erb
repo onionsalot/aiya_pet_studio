@@ -1,7 +1,14 @@
-<p>Hello <%= @email %>!</p>
+<% content_for :content do %>
+  
+  <h3>Hello <span class="email"><%= @email %></span>!</h3>
 
-<% if @resource.try(:unconfirmed_email?) %>
-  <p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
-<% else %>
-  <p>We're contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
+  <% if @resource.try(:unconfirmed_email?) %>
+    <p>We are contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
+  <% else %>
+    <p>We are contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
+  <% end %>
+
+  <%= yield %>
+
 <% end %>
+<%= render template: "layouts/mailer" %>
