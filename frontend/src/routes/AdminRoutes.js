@@ -5,6 +5,7 @@ import ProtectedRoute from "./ProtectedRoute"
 import { useBoundStore } from "../stores/useBoundStore"
 import AdminNav from "../components/Admin/AdminNav/AdminNav"
 import AdminTitleBar from "../components/Admin/AdminTitleBar/AdminTitleBar"
+import UsersPage from "../pages/UsersPage/UsersPage"
 
 function AdminRoutes() {
   const user = useBoundStore((state) => state.user)
@@ -16,12 +17,28 @@ function AdminRoutes() {
         <div className="m-3 h-[90%]">
           <Routes>
             <Route
-                path="dashboard"
-                element={
-                  <ProtectedRoute isAllowed={!!user && user.admin}>
-                    <AdminDashboard />
-                  </ProtectedRoute>
-                }
+              path="dashboard"
+              element={
+                <ProtectedRoute isAllowed={!!user && user.admin}>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="users"
+              element={
+                <ProtectedRoute isAllowed={!!user && user.admin}>
+                  <UsersPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="users/:id"
+              element={
+                <ProtectedRoute isAllowed={!!user && user.admin}>
+
+                </ProtectedRoute>
+              }
             />
           </Routes> 
         </div>

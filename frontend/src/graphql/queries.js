@@ -26,7 +26,11 @@ export const GET_ALL_USERS = {
     query AllUsers {
       users {
         id
+        email
         fullName
+        signInCount
+        createdAt
+        admin
       }
     }
   `
