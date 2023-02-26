@@ -81,7 +81,7 @@ const Table = ({ columns, data }) => {
           <input
             value={searchInput}
             onChange={handleSearchChange}
-            placeholder={"Search name"}
+            placeholder="Search name"
             className="admin-tables"
           />
           <select
