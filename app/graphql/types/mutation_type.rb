@@ -1,5 +1,8 @@
 module Types
   class MutationType < Types::BaseObject
+    field :tag_update, mutation: Mutations::TagUpdate
+    field :tag_delete, mutation: Mutations::TagDelete
+    field :tag_create, mutation: Mutations::TagCreate
     field :product_delete, mutation: Mutations::ProductDelete
     field :product_update, mutation: Mutations::ProductUpdate
     field :product_create, mutation: Mutations::ProductCreate
