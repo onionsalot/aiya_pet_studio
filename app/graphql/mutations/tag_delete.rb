@@ -12,9 +12,9 @@ module Mutations
       begin
         raise "Not an Admin" unless context[:current_user].admin?
 
-        tag = Tag.find_by!(id: id).destroy
-        # service = TagService.new(tag: tag)
-        # service.destroy_tag!
+        tag = Tag.find_by!(id: id)
+        service = TagService.new(tag: tag)
+        service.destroy_tag!
 
         { tag: tag }
       rescue StandardError => e

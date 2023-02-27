@@ -12,15 +12,11 @@ module Mutations
       begin
         raise "Not an Admin" unless context[:current_user].admin?
 
-        # tag = TagService.create_tag!(
-        #   name: name
-        # )
+        tag = TagService.create_tag!(
+          name: name
+        )
 
-        # { tag: tag }
-        tag = Tag.create!(name: name)
-        
         {tag: tag}
-
       rescue StandardError => e
         raise GraphQL::ExecutionError.new e || "Error creating tag"
       end
