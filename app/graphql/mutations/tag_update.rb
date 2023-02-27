@@ -7,7 +7,7 @@ module Mutations
     field :tag, Types::TagType, null: true
 
     argument :id, ID, required: true
-    argument :name, Types::TagType, required: true
+    argument :name, String, required: true
 
     def resolve(id:, name:, price:)
       begin
