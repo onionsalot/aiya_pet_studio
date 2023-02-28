@@ -7,7 +7,7 @@ const Login = () => {
   const formRef = useRef()
   const [showReset, setShowReset] = useState(false)
   const { signinUserMutation, requestPasswordResetMutation } = useAuth()
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const formData = new FormData(formRef.current)
@@ -22,7 +22,7 @@ const Login = () => {
     }
     signinUserMutation.mutate(
       userInfo,
-      { 
+      {
         onSuccess: (response) => {
           navigate("/app")
         }
@@ -30,7 +30,7 @@ const Login = () => {
     )
     e.target.reset()
   }
-  
+
   const handlePasswordReset = async (e) => {
     e.preventDefault()
     const formData = new FormData(formRef.current)
@@ -44,28 +44,37 @@ const Login = () => {
   return (
     <div>
       <h3> Login </h3>
-      { showReset 
-      ? 
+      {showReset
+        ?
         <>
           <form ref={formRef} onSubmit={handlePasswordReset}>
-          Email: <input type="email" name="email" placeholder="email" required/>
-          <input type="submit" value="Submit" />
+            <label for="email">Email: </label>
+            <input type="email" name="email" placeholder="email" required />
+            <input type="submit" value="Submit" />
           </form>
-          
+
           {requestPasswordResetMutation.isError ? requestPasswordResetMutation.error.response.data.message : ""}
           <br />
           <p><span className="clickable-span" onClick={() => setShowReset(!showReset)}>Return to Login</span></p>
         </>
-      : 
+        :
         <>
           <form ref={formRef} onSubmit={handleSubmit}>
-            Email: <input type="email" name="email" placeholder="email" required/>
+            <label>
+              Email:
+              <input type="email" name="email" placeholder="email" required />
+            </label>
             <br />
-            Password:{" "}
-            <input type="password" name="password" placeholder="password" required/>
+            <label>
+              Password:
+              <input type="password" name="password" placeholder="password" required />
+            </label>
             <br />
-            Remember Me:
-            <input type="checkbox" name="remember_me" ></input> 
+            <label>
+              <input type="checkbox" name="remember_me" />
+              Remember Me
+            </label>
+            <br />
             <input type="submit" value="Login" />
           </form>
           <br />
