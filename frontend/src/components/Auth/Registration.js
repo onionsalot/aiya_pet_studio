@@ -39,17 +39,17 @@ const Registration = () => {
 
   return (
     <div>
-      <h3 className="text-center text-2xl mb-5"> Register an Account</h3>
+      <h1 className="text-center text-2xl mb-5"> Register an Account</h1>
       <div className="flex justify-center px-5">
-        <form ref={formRef} onSubmit={handleSubmit} className="w-full max-w-lg">
+        <form ref={formRef} onSubmit={handleSubmit} className="w-full max-w-2xl">
           <div class="form-grid">
-            <div className="w-full md:w-2/3 px-3">
+            <div className="w-2/3 px-3">
               <label className="form-label">
                 First Name
                 <input className="form-input" type="text" name="first_name" placeholder="First Name" required />
               </label>
             </div>
-            <div className="w-full md:w-1/3 px-3">
+            <div className="w-1/3 px-3">
               <label className="form-label">
                 Middle Name
                 <input className="form-input" type="text" name="middle_name" placeholder="Middle Name" />
@@ -57,13 +57,13 @@ const Registration = () => {
             </div>
           </div>
           <div class="form-grid">
-            <div className="w-full md:w-2/3 px-3">
+            <div className="w-2/3 px-3">
               <label className="form-label">
                 Last Name
                 <input className="form-input" type="text" name="last_name" placeholder="Last Name" required />
               </label>
             </div>
-            <div class="w-full md:w-1/3 px-3">
+            <div class="w-1/3 px-3">
               <label className="form-label">
                 Gender
                 <select className="form-input " name="gender" required>
@@ -88,7 +88,7 @@ const Registration = () => {
           </label>
 
           <div className="form-grid">
-            <div className="w-full md:w-1/2 px-3">
+            <div className="w-1/2 px-3">
               <label className="form-label">
                 Country
                 <CountryDropdown
@@ -100,7 +100,7 @@ const Registration = () => {
                 />
               </label>
             </div>
-            <div className="w-full md:w-1/2 px-3">
+            <div className="w-1/2 px-3">
               <label className="form-label">
                 State/Province
                 <RegionDropdown
@@ -116,12 +116,12 @@ const Registration = () => {
           </div>
 
           <div className="form-grid">
-            <div className="w-full md:w-1/2 px-3">
+            <div className="w-1/2 px-3">
               <label className="form-label">
                 City <input className="form-input" type="text" name="city" placeholder="City" required />
               </label>
             </div>
-            <div className="w-full md:w-1/2 px-3">
+            <div className="w-1/2 px-3">
               <label className="form-label">
                 Zip Code
                 <input className="form-input" type="text" name="zipcode" placeholder="ZIP Code" required />

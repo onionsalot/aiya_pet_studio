@@ -17,10 +17,14 @@
   }
 
   .form-input {
-    @apply bg-indigo-50 font-light appearance-none border-2 border-indigo-50 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-400
+    @apply shadow bg-indigo-50 font-light appearance-none border-2 border-indigo-50 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-400
   }
 
   .form-submit {
-    @apply w-full bg-indigo-500 hover:bg-indigo-400 text-white py-2 block uppercase font-bold tracking-wide rounded mt-2
+    @apply shadow w-full bg-indigo-500 hover:bg-indigo-400 text-white py-2 block uppercase font-bold tracking-wide rounded mt-2 focus:outline-none focus:ring focus:ring-indigo-600
+  }
+
+  .clickable-span {
+    @apply text-indigo-400 font-bold px-2 hover:bg-indigo-50 hover:text-indigo-500 tracking-wide rounded hover:cursor-default
   }
 }
