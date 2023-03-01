@@ -7,4 +7,20 @@
   .admin-tables {
     @apply border-2 border-gray-200
   }
+
+  .form-grid {
+    @apply flex flex-wrap -mx-3
+  }
+
+  .form-label {
+    @apply block uppercase tracking-wide text-gray-700 font-bold mb-2
+  }
+
+  .form-input {
+    @apply bg-indigo-50 font-light appearance-none border-2 border-indigo-50 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-400
+  }
+
+  .form-submit {
+    @apply w-full bg-indigo-500 hover:bg-indigo-400 text-white py-2 block uppercase font-bold tracking-wide rounded mt-2
+  }
 }
