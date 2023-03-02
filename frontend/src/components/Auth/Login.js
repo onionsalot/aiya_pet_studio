@@ -46,9 +46,10 @@ const Login = () => {
       {showReset
         ?
         <>
-          <h1 className="text-center text-2xl mb-3">Reset Password</h1>
+          <h1 className="text-center text-2xl mb-3">Forgot Password</h1>
           <div className="flex justify-center px-5">
             <form ref={formRef} onSubmit={handlePasswordReset} className="w-full max-w-2xl">
+              <p className="text-center my-3 text-gray-600 ">Please enter your email address and we'll send you a link to reset your password:</p>
               <label className="form-label">
                 Email
                 <input className="form-input" type="email" name="email" placeholder="Email" required />
@@ -57,7 +58,6 @@ const Login = () => {
             </form>
           </div>
           {requestPasswordResetMutation.isError ? requestPasswordResetMutation.error.response.data.message : ""}
-          <br />
           <p className="text-center"><span className="clickable-span" onClick={() => setShowReset(!showReset)}>Return to Login</span></p>
         </>
         :
@@ -79,7 +79,7 @@ const Login = () => {
               <input className="form-submit mt-5" type="submit" value="Login" />
             </form>
           </div>
-          <p className="text-center">Forgot password? <span className="clickable-span" onClick={() => setShowReset(!showReset)}>Reset Here</span></p>
+          <p className="text-center">Forgot password? <span className="clickable-span" onClick={() => setShowReset(!showReset)}>Reset here</span></p>
         </>
       }
       {signinUserMutation.isError ? signinUserMutation.error.response?.data : ""}
