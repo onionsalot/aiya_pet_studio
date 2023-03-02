@@ -6,8 +6,8 @@ export const GET_ALL_PRODUCTS = {
         name
       }
     }
-  `
-}
+  `,
+};
 
 export const GET_ONE_PRODUCT = {
   query: `
@@ -18,8 +18,8 @@ export const GET_ONE_PRODUCT = {
         description
       }
     }
-  `
-}
+  `,
+};
 
 export const GET_ALL_USERS = {
   query: `
@@ -33,5 +33,27 @@ export const GET_ALL_USERS = {
         admin
       }
     }
-  `
-}
+  `,
+};
+
+export const GET_ALL_TAGS = {
+  query: `
+    query AllTags {
+      tags {
+        id
+        name
+      }
+    }
+  `,
+};
+
+export const GET_ONE_TAG = {
+  query: `
+    query OneTag($id: ID!) {
+      tag(id: $id) {
+        id
+        name
+      }
+    }
+  `,
+};
