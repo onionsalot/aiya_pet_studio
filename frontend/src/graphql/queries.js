@@ -42,6 +42,7 @@ export const GET_ALL_TAGS = {
       tags {
         id
         name
+        createdAt
       }
     }
   `,
@@ -53,6 +54,7 @@ export const GET_ONE_TAG = {
       tag(id: $id) {
         id
         name
+        createdAt
       }
     }
   `,
