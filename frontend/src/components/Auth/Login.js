@@ -42,43 +42,44 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <h3> Login </h3>
+    <div className="mt-10">
       {showReset
         ?
         <>
-          <form ref={formRef} onSubmit={handlePasswordReset}>
-            <label for="email">Email: </label>
-            <input type="email" name="email" placeholder="email" required />
-            <input type="submit" value="Submit" />
-          </form>
-
+          <h1 className="text-center text-2xl mb-3">Reset Password</h1>
+          <div className="flex justify-center px-5">
+            <form ref={formRef} onSubmit={handlePasswordReset} className="w-full max-w-2xl">
+              <label className="form-label">
+                Email
+                <input className="form-input" type="email" name="email" placeholder="Email" required />
+              </label>
+              <input className="form-submit mt-5" type="submit" value="Submit" />
+            </form>
+          </div>
           {requestPasswordResetMutation.isError ? requestPasswordResetMutation.error.response.data.message : ""}
           <br />
-          <p><span className="clickable-span" onClick={() => setShowReset(!showReset)}>Return to Login</span></p>
+          <p className="text-center"><span className="clickable-span" onClick={() => setShowReset(!showReset)}>Return to Login</span></p>
         </>
         :
         <>
-          <form ref={formRef} onSubmit={handleSubmit}>
-            <label>
-              Email:
-              <input type="email" name="email" placeholder="email" required />
-            </label>
-            <br />
-            <label>
-              Password:
-              <input type="password" name="password" placeholder="password" required />
-            </label>
-            <br />
-            <label>
-              <input type="checkbox" name="remember_me" />
-              Remember Me
-            </label>
-            <br />
-            <input type="submit" value="Login" />
-          </form>
-          <br />
-          <p>Forgot password? <span className="clickable-span" onClick={() => setShowReset(!showReset)}>Reset here</span></p>
+          <div className="flex justify-center px-5">
+            <form ref={formRef} onSubmit={handleSubmit} className="w-full max-w-2xl">
+              <label className="form-label">
+                Email
+                <input className="form-input" type="email" name="email" placeholder="Email" required />
+              </label>
+              <label className="form-label">
+                Password
+                <input className="form-input" type="password" name="password" placeholder="Password" required />
+              </label>
+              <label className="form-label">
+                <input className="w-4 h-4 ml-1 mr-3 shadow accent-indigo-500 hover:accent-indigo-400" type="checkbox" name="remember_me" />
+                Remember Me
+              </label>
+              <input className="form-submit mt-5" type="submit" value="Login" />
+            </form>
+          </div>
+          <p className="text-center">Forgot password? <span className="clickable-span" onClick={() => setShowReset(!showReset)}>Reset Here</span></p>
         </>
       }
       {signinUserMutation.isError ? signinUserMutation.error.response?.data : ""}

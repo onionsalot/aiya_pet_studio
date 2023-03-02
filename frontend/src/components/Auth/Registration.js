@@ -151,9 +151,7 @@ const Registration = () => {
               required
             />
           </label>
-          <div className="flex justify-center">
-            <input className="form-submit" type="submit" value="Submit" />
-          </div>
+          <input className="form-submit mt-3" type="submit" value="Submit" />
         </form>
         {signupUserMutation.isSuccess ? "Successfully Signed up! Please check and confirm your email to log in." : ""}
         {signupUserMutation.isError ? signupUserMutation.error.response?.data?.message : ""}
