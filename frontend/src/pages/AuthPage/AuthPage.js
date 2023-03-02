@@ -6,17 +6,18 @@ const AuthPage = () => {
 
   return (
     <div>
-      <div>
-        <h1>AuthPage</h1>
-        { showLogin 
-        ? <>
-            <Login /> <br /> <p> Don't have an account? <span className="clickable-span" onClick={() => setShowLogin(!showLogin)}>Register Here</span></p>
-          </>
-        : <>
-            <Registration /> <br /> <p> Already have an account? <span className="clickable-span" onClick={() => setShowLogin(!showLogin)}>Login Here</span></p>
-          </>
-        }
-      </div>
+      {showLogin
+        ?
+        <>
+          <Login />
+          <p className="text-center mb-7"> Don't have an account? <span className="clickable-span" onClick={() => setShowLogin(!showLogin)}>Register here</span></p>
+        </>
+        :
+        <>
+          <Registration />
+          <p className="text-center mb-7"> Already have an account? <span className="clickable-span" onClick={() => setShowLogin(!showLogin)}>Login here</span></p>
+        </>
+      }
     </div>
   )
 }
