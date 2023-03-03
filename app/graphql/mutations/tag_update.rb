@@ -9,7 +9,7 @@ module Mutations
     argument :id, ID, required: true
     argument :name, String, required: true
 
-    def resolve(id:, name:, price:)
+    def resolve(id:, name:)
       begin
         raise "Not an Admin" unless context[:current_user].admin?
 

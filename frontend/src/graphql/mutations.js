@@ -36,3 +36,15 @@ export const DELETE_PRODUCT = {
     }    
   `
 }
+
+export const UPDATE_TAG = {
+  query: `
+    mutation ($id: ID!, $name: String!) {
+      tagUpdate(input: {id: $id, name: $name}) {
+        tag {
+          id
+        }
+      }
+    }
+  `
+}

@@ -7,6 +7,7 @@ import AdminNav from "../components/Admin/AdminNav/AdminNav"
 import AdminTitleBar from "../components/Admin/AdminTitleBar/AdminTitleBar"
 import UsersPage from "../pages/UsersPage/UsersPage"
 import TagsPage from "../pages/TagsPage/TagsPage"
+import EditTagForm from "../components/EditTagForm/EditTagForm"
 
 function AdminRoutes() {
   const user = useBoundStore((state) => state.user)
@@ -46,6 +47,14 @@ function AdminRoutes() {
               element={
                 <ProtectedRoute isAllowed={!!user && user.admin}>
                   <TagsPage /> 
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="tags/:id"
+              element={
+                <ProtectedRoute isAllowed={!!user && user.admin}>
+                  <EditTagForm />
                 </ProtectedRoute>
               }
             />

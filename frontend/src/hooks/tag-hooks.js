@@ -10,10 +10,10 @@ export const useTags = () => {
   })
 }
 
-// export const useTag = (input = null) => {
-//   return useQuery(["get-one-tag", input?.id], () => gqlHelper(GET_ONE_TAG, input), {
-//     staleTime: 3600000,
-//     retry: false,
-//     refetchOnWindowFocus: false,
-//   })
-// }
+export const useTag = (input = null) => {
+  return useQuery(["get-one-tag", input?.id], () => gqlHelper(GET_ONE_TAG, input), {
+    staleTime: 3600000,
+    retry: false,
+    refetchOnWindowFocus: false,
+  })
+}
