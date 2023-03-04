@@ -5,12 +5,14 @@ import toast from 'react-hot-toast'
 
 export const useMutate = () => {
   const queryClient = useQueryClient()
-  const checkResponse = (response) => {
+  const checkResponse = (response, ...args) => {
     if (response.data?.errors) {
       sendError(response.data?.errors[0].message)
     } else {
       toast.success('Success!')
-      queryClient.invalidateQueries('get-all-products') 
+      for (let i = 0; i < args.length; i++) {
+        queryClient.invalidateQueries(args[i])
+      }
     }
   }
   const sendError = (e) => {
@@ -21,7 +23,7 @@ export const useMutate = () => {
   const addProduct = useMutation((input) => gqlHelper(ADD_NEW_PRODUCT, input),
     {
       onSuccess: (response) => {
-        checkResponse(response)
+        checkResponse(response, 'get-all-products')
       },
       onError: (e) => {
         sendError(e.response.data.errors[0].message)
@@ -31,7 +33,7 @@ export const useMutate = () => {
   const deleteProduct = useMutation((input) => gqlHelper(DELETE_PRODUCT, input),
     {
       onSuccess: (response) => {
-        checkResponse(response)
+        checkResponse(response, 'get-all-products')
       },
       onError: (e) => {
         sendError(e.response.data.errors[0].message)
@@ -41,7 +43,7 @@ export const useMutate = () => {
   const updateProduct = useMutation((input) => gqlHelper(UPDATE_PRODUCT, input),
     {
       onSuccess: (response) => {
-        checkResponse(response)
+        checkResponse(response, 'get-all-products', 'get-one-product')
       },
       onError: (e) => {
         sendError(e.response.data.errors[0].message)
@@ -51,7 +53,7 @@ export const useMutate = () => {
     const addTag = useMutation((input) => gqlHelper(ADD_NEW_TAG, input),
     {
       onSuccess: (response) => {
-        checkResponse(response)
+        checkResponse(response, 'get-all-tags')
       },
       onError: (e) => {
         sendError(e.response.data.errors[0].message)
@@ -61,7 +63,7 @@ export const useMutate = () => {
     const updateTag = useMutation((input) => gqlHelper(UPDATE_TAG, input),
     {
       onSuccess: (response) => {
-        checkResponse(response)
+        checkResponse(response, 'get-all-tags', 'get-one-tag')
       },
       onError: (e) => {
         sendError(e.response.data.errors[0].message)

@@ -1,6 +1,6 @@
 import { useMutate } from "../../hooks/use-mutate"
 import { useRef } from "react"
-import { useTags } from "../../hooks/tag-hooks"
+import { useTag } from "../../hooks/tag-hooks"
 import { useParams } from "react-router"
 
 const TagForm = () => {
@@ -8,8 +8,10 @@ const TagForm = () => {
     const { updateTag } = useMutate()
     const { addTag } = useMutate()
     const { id } = useParams()
-    const { data } = useTags()
-    const currentTag = data.data.data.tags.find(tag => tag.id === id)
+    const tag = useTag({ "id": id })
+
+    if (tag.isError) return <h1>Something went wrong!</h1>
+    if (tag.isLoading) return <h1>Loading...</h1>
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -23,15 +25,15 @@ const TagForm = () => {
             updateTag.mutate(input)
         }
     }
-    
+
     return (
         <>
             <form ref={formRef} onSubmit={handleSubmit}>
-                <label>
+                <label className="form-label">
                     Name:
-                    <input defaultValue={currentTag ? currentTag.name : ""} type="name" name="name" required />
+                    <input className="form-input" defaultValue={tag?.data?.data?.data?.tag.name && tag.data.data.data.tag.name} type="name" name="name" required />
                 </label>
-                <input type="submit" value="Submit" />
+                <input className="form-submit" type="submit" value="Submit" />
             </form>
         </>
     )
