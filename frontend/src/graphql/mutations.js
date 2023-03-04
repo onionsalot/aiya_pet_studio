@@ -37,6 +37,19 @@ export const DELETE_PRODUCT = {
   `
 }
 
+export const ADD_NEW_TAG = {
+  query: `
+    mutation ($name: String!) {
+      tagCreate(input: {name: $name}) {
+        tag {
+          id
+          name
+        }
+      }
+    }        
+  `
+}
+
 export const UPDATE_TAG = {
   query: `
     mutation ($id: ID!, $name: String!) {

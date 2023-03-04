@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "react-query"
-import { ADD_NEW_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT, UPDATE_TAG } from "../graphql/mutations"
+import { ADD_NEW_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT, UPDATE_TAG, ADD_NEW_TAG } from "../graphql/mutations"
 import { gqlHelper } from "../helpers/gql-helper"
 import toast from 'react-hot-toast'
 
@@ -48,6 +48,16 @@ export const useMutate = () => {
       }
     })
 
+    const addTag = useMutation((input) => gqlHelper(ADD_NEW_TAG, input),
+    {
+      onSuccess: (response) => {
+        checkResponse(response)
+      },
+      onError: (e) => {
+        sendError(e.response.data.errors[0].message)
+      }
+    })
+
     const updateTag = useMutation((input) => gqlHelper(UPDATE_TAG, input),
     {
       onSuccess: (response) => {
@@ -62,6 +72,7 @@ export const useMutate = () => {
     addProduct,
     deleteProduct,
     updateProduct,
+    addTag,
     updateTag
   }
 }
