@@ -23,7 +23,7 @@ const AdminNav = () => {
           <ul className="list-none p-1 pl-3">
             <li><NavLink url="/admin/users" text="Users"/></li>
             <li><NavLink url="/admin/dashboard" text="Products"/></li>
-            <li><NavLink url="/admin/dashboard" text="Tags"/></li>
+            <li><NavLink url="/admin/tags" text="Tags"/></li>
             <li><NavLink url="/admin/dashboard" text="Categories"/></li>
             <li><NavLink url="/admin/dashboard" text="Invoices"/></li>
             <li><NavLink url="/admin/dashboard" text="Reviews"/></li>

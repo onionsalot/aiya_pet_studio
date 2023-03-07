@@ -1,6 +1,7 @@
 import Table from "../../components/Admin/Table/Table"
 import { useTags } from "../../hooks/tag-hooks"
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
 
 const TagsPage = () => {
   const tags = useTags()
@@ -32,8 +33,9 @@ const TagsPage = () => {
   return (
     <div className="bg-white h-full overflow-y-scroll">
       <Table columns={columns} data={tags?.data?.data?.data?.tags} />
+      <Link to="/admin/tags/create">Add</Link>
     </div>
   )
 }
- 
+
 export default TagsPage
