@@ -4,16 +4,3 @@
   justify-content: space-between;
   align-items: center;
 }
-
-.logout-button {
-  margin-right: 10px;
-}
-
-.logout-button,
-.logout-button input:hover {
-  cursor: pointer;
-}
-
-.logout-button input {
-  margin-left: 2px;
-}
