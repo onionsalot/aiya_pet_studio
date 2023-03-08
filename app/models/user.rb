@@ -30,6 +30,7 @@
 #  city                   :string
 #  state                  :string
 #  zipcode                :string
+#  phone_number           :string
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
