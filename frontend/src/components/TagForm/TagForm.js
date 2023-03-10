@@ -31,7 +31,7 @@ const TagForm = () => {
             <form ref={formRef} onSubmit={handleSubmit}>
                 <label className="form-label">
                     Name:
-                    <input className="form-input" defaultValue={tag?.data?.data?.data?.tag.name && tag.data.data.data.tag.name} type="name" name="name" required />
+                    <input className="form-input" defaultValue={tag?.data?.data?.data?.tag.name && tag.data.data.data.tag.name} type="text" name="name" required />
                 </label>
                 <input className="form-submit" type="submit" value="Submit" />
             </form>

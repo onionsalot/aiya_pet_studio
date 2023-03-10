@@ -1,8 +1,7 @@
 import Table from "../../components/Admin/Table/Table"
 import { useProducts } from "../../hooks/product-hooks"
 import { useMemo } from "react"
-import AddProductForm from "../../components/AddProductForm/AddProductForm"
-import EditProductForm from "../../components/EditProductForm/EditProductForm"
+import { Link } from "react-router-dom"
 
 const ProductsPage = () => {
     const products = useProducts()
@@ -43,13 +42,7 @@ const ProductsPage = () => {
     return (
         <div className="bg-white h-full overflow-y-scroll">
             <Table columns={columns} data={products?.data?.data?.data?.products} />
-            
-            <hr />
-            <h1>Add Product: </h1>
-            <AddProductForm />
-
-            <h1>Edit Product: </h1>
-            <EditProductForm />
+            <Link to="/admin/products/create">Add</Link>
         </div>
     )
 }

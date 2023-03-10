@@ -9,6 +9,7 @@ import UsersPage from "../pages/UsersPage/UsersPage"
 import TagsPage from "../pages/TagsPage/TagsPage"
 import CreateUpdateTag from "../pages/CreateUpdateTag/CreateUpdateTag"
 import ProductsPage from "../pages/ProductsPage/ProductsPage"
+import CreateUpdateProduct from "../pages/CreateUpdateProduct/CreateUpdateProduct"
 
 function AdminRoutes() {
   const user = useBoundStore((state) => state.user)
@@ -72,6 +73,22 @@ function AdminRoutes() {
               element={
                 <ProtectedRoute isAllowed={!!user && user.admin}>
                   <ProductsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="products/:id"
+              element={
+                <ProtectedRoute isAllowed={!!user && user.admin}>
+                  <CreateUpdateProduct />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="products/create"
+              element={
+                <ProtectedRoute isAllowed={!!user && user.admin}>
+                  <CreateUpdateProduct />
                 </ProtectedRoute>
               }
             />
