@@ -32,8 +32,8 @@ const TagsPage = () => {
   if (tags.isLoading) return <h1>Loading...</h1>
   return (
     <div className="bg-white h-full overflow-y-scroll">
+      <Link className="admin-form-submit w-24 ml-2" to="/admin/tags/create">+ Add</Link>
       <Table columns={columns} data={tags?.data?.data?.data?.tags} />
-      <Link to="/admin/tags/create">Add</Link>
     </div>
   )
 }

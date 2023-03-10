@@ -28,12 +28,19 @@ const TagForm = () => {
 
     return (
         <>
-            <form ref={formRef} onSubmit={handleSubmit}>
-                <label className="form-label">
+            <form ref={formRef} onSubmit={handleSubmit} className="max-w-xl m-6">
+                <h1 className="text-2xl text-center mb-3">{id ? "Edit Tag" : "Add Tag"}</h1>
+                <label className="admin-form-label">
                     Name:
-                    <input className="form-input" defaultValue={tag?.data?.data?.data?.tag.name && tag.data.data.data.tag.name} type="text" name="name" required />
+                    <input
+                        className="admin-form-input"
+                        defaultValue={tag?.data?.data?.data?.tag.name && tag.data.data.data.tag.name}
+                        type="text"
+                        name="name"
+                        required
+                    />
                 </label>
-                <input className="form-submit" type="submit" value="Submit" />
+                <input className="admin-form-submit" type="submit" value="Submit" />
             </form>
         </>
     )

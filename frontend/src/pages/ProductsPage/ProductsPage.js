@@ -41,8 +41,8 @@ const ProductsPage = () => {
 
     return (
         <div className="bg-white h-full overflow-y-scroll">
+            <Link className="admin-form-submit w-24 ml-2" to="/admin/products/create">+ Add</Link>
             <Table columns={columns} data={products?.data?.data?.data?.products} />
-            <Link to="/admin/products/create">Add</Link>
         </div>
     )
 }

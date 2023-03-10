@@ -37,32 +37,40 @@ const ProductForm = () => {
 
   return (
     <>
-      <form ref={formRef} onSubmit={handleSubmit}>
-        <label className="form-label">
+      <form ref={formRef} onSubmit={handleSubmit} className="max-w-xl m-6">
+        <h1 className="text-2xl text-center mb-3">{id ? "Edit Product" : "Add Product"}</h1>
+        <label className="admin-form-label">
           Name:
           <input
-            className="form-input"
+            className="form-input admin-form-input"
             defaultValue={product?.data?.data?.data?.product.name && product.data.data.data.product.name}
             type="text"
-            name="name" required />
+            name="name"
+            required
+          />
         </label>
-        <label className="form-label">
+        <label className="admin-form-label">
           Price:
           <input
-            className="form-input"
+            className="admin-form-input"
             defaultValue={product?.data?.data?.data?.product.price && product.data.data.data.product.price}
             type="number"
-            name="price" required />
+            name="price"
+            required
+          />
         </label>
-        <label className="form-label">
+        <label className="admin-form-label">
           Description:
-          <input
-            className="form-input"
+          <textarea
+            className="admin-form-input"
             defaultValue={product?.data?.data?.data?.product.description && product.data.data.data.product.description}
             type="text"
-            name="description" required />
+            name="description"
+            rows="3"
+            required
+          />
         </label>
-        <input className="form-submit" type="submit" value="Submit" />
+        <input className="admin-form-submit" type="submit" value="Submit" />
       </form>
     </>
   )
