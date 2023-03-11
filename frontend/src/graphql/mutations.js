@@ -1,12 +1,13 @@
 
 export const ADD_NEW_PRODUCT = {
   query: `
-    mutation ($name: String!, $price: Int!) {
-      productCreate(input: {name: $name, price: $price}) {
+    mutation ($name: String!, $price: Int!, $description: String!) {
+      productCreate(input: {name: $name, price: $price, description: $description}) {
         product {
           id
           name
           price
+          description
         }
       }
     }        
@@ -15,8 +16,8 @@ export const ADD_NEW_PRODUCT = {
 
 export const UPDATE_PRODUCT = {
   query: `
-    mutation ($id: ID!, $name: String!, $price: Int!) {
-      productUpdate(input: {id: $id, name: $name, price: $price}) {
+    mutation ($id: ID!, $name: String!, $price: Int!, $description: String!) {
+      productUpdate(input: {id: $id, name: $name, price: $price, description: $description}) {
         product {
           id
         }

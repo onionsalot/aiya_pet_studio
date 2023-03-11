@@ -2,9 +2,7 @@ import React from "react"
 import { useProducts } from "../../hooks/product-hooks"
 import { useUsers } from "../../hooks/user-hooks"
 import { useBoundStore } from "../../stores/useBoundStore"
-import AddProductForm from "../../components/AddProductForm/AddProductForm"
 import Product from "../../components/Product/Product"
-import EditProductForm from "../../components/EditProductForm/EditProductForm"
 
 const AdminDashboard = () => {
   const user = useBoundStore((state) => state.user)
@@ -26,15 +24,6 @@ const AdminDashboard = () => {
         )
       }
 
-      <hr />
-      <h3>Add Product -</h3>
-      <AddProductForm />
-
-      <hr />
-      <h3>Edit Product -</h3>
-      <EditProductForm />
-
-      <hr />
       <h3>All Products -</h3>
       {
         user.admin && products.isSuccess && (

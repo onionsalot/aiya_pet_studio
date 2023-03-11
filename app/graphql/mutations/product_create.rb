@@ -6,16 +6,18 @@ module Mutations
 
     argument :name, String, required: true
     argument :price, Integer, required: true
+    argument :description, String, required: true
 
     field :product, Types::ProductType, null: true
 
-    def resolve(name: nil, price: nil)
+    def resolve(name: nil, price: nil, description: nil)
       begin
         raise "Not an Admin" unless context[:current_user].admin?
 
         product = ProductService.create_product!(
           name: name,
-          price: price
+          price: price,
+          description: description
         )
 
         { product: product }

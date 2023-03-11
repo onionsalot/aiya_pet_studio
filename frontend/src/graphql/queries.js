@@ -4,6 +4,9 @@ export const GET_ALL_PRODUCTS = {
       products {
         id
         name
+        price
+        description
+        createdAt
       }
     }
   `,
@@ -15,6 +18,7 @@ export const GET_ONE_PRODUCT = {
       product(id: $id) {
         id
         name
+        price
         description
       }
     }

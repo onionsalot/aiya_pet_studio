@@ -22,7 +22,7 @@ const AdminNav = () => {
           <label className="text-admin_main text-lg">{database} Object Management</label>
           <ul className="list-none p-1 pl-3">
             <li><NavLink url="/admin/users" text="Users"/></li>
-            <li><NavLink url="/admin/dashboard" text="Products"/></li>
+            <li><NavLink url="/admin/products" text="Products"/></li>
             <li><NavLink url="/admin/tags" text="Tags"/></li>
             <li><NavLink url="/admin/dashboard" text="Categories"/></li>
             <li><NavLink url="/admin/dashboard" text="Invoices"/></li>

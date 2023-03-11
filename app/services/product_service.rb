@@ -1,17 +1,14 @@
 class ProductService
-  def self.create_product!(name:, price:)
-    Product.create!(
-      name: name,
-      price: price
-    )
+  def self.create_product!(**args)
+    Product.create!(args)
   end
 
   def initialize(product:)
     @product = product
   end
 
-  def update_product!(name:, price:)
-    @product.update!(name: name, price: price)
+  def update_product!(**args)
+    @product.update!(args)
   end
 
   def destroy_product!

@@ -9,14 +9,15 @@ module Mutations
     argument :id, ID, required: true
     argument :name, String, required: true
     argument :price, Integer, required: true
+    argument :description, String, required: true
 
-    def resolve(id:, name:, price:)
+    def resolve(id:, name:, price:, description:)
       begin
         raise "Not an Admin" unless context[:current_user].admin?
 
         product = Product.find_by!(id: id)
         service = ProductService.new(product: product)
-        service.update_product!(name: name, price: price)
+        service.update_product!(name: name, price: price, description: description)
 
         { product: product }
       rescue StandardError => e
