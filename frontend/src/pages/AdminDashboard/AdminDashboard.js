@@ -4,7 +4,6 @@ import { useUsers } from "../../hooks/user-hooks"
 import { useBoundStore } from "../../stores/useBoundStore"
 import Product from "../../components/Product/Product"
 
-
 const AdminDashboard = () => {
   const user = useBoundStore((state) => state.user)
   const users = useUsers()
