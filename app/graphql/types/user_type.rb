@@ -24,5 +24,6 @@ module Types
     field :state, String
     field :zipcode, String
     field :full_name, String
+    field :phone_number, String
   end
 end

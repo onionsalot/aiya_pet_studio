@@ -30,6 +30,7 @@
 #  city                   :string
 #  state                  :string
 #  zipcode                :string
+#  phone_number           :string
 #
 
 # This model initially had no columns defined. If you add columns to the
