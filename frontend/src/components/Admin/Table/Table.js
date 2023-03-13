@@ -179,8 +179,7 @@ const Table = ({ columns, data }) => {
                   {column.render("Header")} {" "}
                   {
                     column.parent
-                      ?
-                      column.isSorted
+                      ? column.isSorted
                         ? column.isSortedDesc
                           ? desc
                           : asc
