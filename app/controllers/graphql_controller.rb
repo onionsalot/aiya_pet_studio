@@ -5,6 +5,7 @@ class GraphqlController < ApplicationController
   # protect_from_forgery with: :null_session
   skip_before_action :verify_authenticity_token
   # before_action :authenticate_user!
+  before_action :set_paper_trail_whodunnit
 
   def execute
     variables = prepare_variables(params[:variables])
