@@ -23,6 +23,10 @@ const ProductsPage = () => {
                         accessor: "price",
                     },
                     {
+                        Header: "Description",
+                        accessor: "description",
+                    },
+                    {
                         Header: "Created At",
                         accessor: "createdAt",
                     },

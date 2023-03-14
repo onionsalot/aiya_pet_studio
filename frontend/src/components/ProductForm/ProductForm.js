@@ -37,7 +37,7 @@ const ProductForm = () => {
 
   return (
     <>
-      <form ref={formRef} onSubmit={handleSubmit} className="max-w-2xl m-6">
+      <form ref={formRef} onSubmit={handleSubmit} className="max-w-xl m-6">
         <h1 className="text-2xl text-center mb-3">{id ? "Edit Product" : "Add Product"}</h1>
         <label className="admin-form-label">
           Name:
@@ -66,7 +66,7 @@ const ProductForm = () => {
             defaultValue={product?.data?.data?.data?.product.description && product.data.data.data.product.description}
             type="text"
             name="description"
-            rows="15"
+            rows="3"
             required
           />
         </label>
