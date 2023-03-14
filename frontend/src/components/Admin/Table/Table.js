@@ -198,7 +198,7 @@ const Table = ({ columns, data }) => {
           {page.map((row) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr className="hover:outline hover:text-blue-500" {...row.getRowProps()}>
                 {row.cells.map((cell) => {
                   return (
                     <td className="admin-tables cursor-pointer truncate max-w-[220px]" title={cell.value} {...cell.getCellProps()} onClick={() => handleLink(row.values.id)}>
