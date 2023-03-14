@@ -1,18 +1,20 @@
 import { useTable, useFilters, useSortBy, usePagination } from "react-table";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
+import {
   faAnglesRight,
   faAnglesLeft,
   faArrowUpAZ,
   faArrowDownZA,
-  faArrowRotateRight
+  faArrowRotateRight,
+  faSort
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom"
 
 const Table = ({ columns, data }) => {
   const right = <FontAwesomeIcon icon={faAnglesRight} />;
   const left = <FontAwesomeIcon icon={faAnglesLeft} />;
+  const sort = <FontAwesomeIcon icon={faSort} />
   const asc = <FontAwesomeIcon icon={faArrowUpAZ} />;
   const desc = <FontAwesomeIcon icon={faArrowDownZA} />;
   const reset = <FontAwesomeIcon icon={faArrowRotateRight} />;
@@ -165,7 +167,7 @@ const Table = ({ columns, data }) => {
         </span>
       </div>
 
-      <table className="admin-tables" {...getTableProps()}>
+      <table className="w-full admin-tables" {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr className="admin-tables" {...headerGroup.getHeaderGroupProps()}>
@@ -176,10 +178,12 @@ const Table = ({ columns, data }) => {
                 >
                   {column.render("Header")} {" "}
                   {
-                    column.isSorted
-                      ? column.isSortedDesc
-                        ? desc
-                        : asc
+                    column.parent
+                      ? column.isSorted
+                        ? column.isSortedDesc
+                          ? desc
+                          : asc
+                        : sort
                       : ""
                   }
                 </th>
@@ -194,10 +198,10 @@ const Table = ({ columns, data }) => {
           {page.map((row) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr className="hover:outline hover:text-blue-500" {...row.getRowProps()}>
                 {row.cells.map((cell) => {
                   return (
-                    <td className="admin-tables cursor-pointer" {...cell.getCellProps()} onClick={() => handleLink(row.values.id)}>
+                    <td className="admin-tables cursor-pointer truncate max-w-[220px]" title={cell.value} {...cell.getCellProps()} onClick={() => handleLink(row.values.id)}>
                       {cell.render("Cell")}
                     </td>
                   );
