@@ -143,6 +143,9 @@ GEM
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    paper_trail (14.0.0)
+      activerecord (>= 6.0)
+      request_store (~> 1.4)
     pg (1.4.3)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -189,6 +192,8 @@ GEM
     regexp_parser (2.6.0)
     reline (0.3.1)
       io-console (~> 0.5)
+    request_store (1.5.1)
+      rack (>= 1.4)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -251,6 +256,7 @@ DEPENDENCIES
   graphql
   importmap-rails
   jsonapi-serializer
+  paper_trail
   pg (~> 1.1)
   pry-byebug
   puma (~> 5.0)
