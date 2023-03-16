@@ -5,18 +5,47 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "faker"
 
 puts "Seeding..."
 
-User.create(full_name: 'Bob', email: 'bob@gmail.com', password: 'somepass')
-User.create(full_name: 'Stacey', email: 'Stacey@gmail.com', password: 'somepass')
-User.create(full_name: 'Onionz', email: 'Onionz@gmail.com', password: 'somepass')
+# If you want to remove previous records before running this seed file, use <Class>.destroy_all for each of the classes to be destroyed.
+# Note ID numbers will not be overwritten unless you reset the database and set it up again.
+# rails db:reset will drop database, create database, and run seed file.
 
-Product.create(name: 'scissors', price: 55, description: 'A pair of scissors')
-Product.create(name: 'fork', price: 55, description: 'An average fork')
-Product.create(name: 'spoon', price: 55, description: 'An average spoon')
-Product.create(name: 'pot', price: 55, description: 'No not the other pot')
-Product.create(name: 'coffee machine', price: 55, description: 'kureig, I guess')
-Product.create(name: 'headphones', price: 55, description: 'bzzzt')
+# User.destroy_all
+# Product.destroy_all
+# Tag.destroy_all
+
+20.times do
+    User.create(
+        first_name: Faker::Name.first_name,
+        middle_name: Faker::Name.middle_name,
+        last_name: Faker::Name.last_name,
+        gender: Faker::Number.between(from: 0, to: 4),
+        address1: Faker::Address.street_address,
+        state: Faker::Address.state,
+        country: "United States",
+        zipcode: Faker::Address.zip,
+        phone_number: Faker::PhoneNumber.cell_phone,
+        email: Faker::Internet.unique.email,
+        password: "somepassword"
+    )
+end
+
+20.times do
+    Product.create(
+        name: Faker::Commerce.product_name,
+        price: Faker::Number.between(from: 1, to: 100),
+        description: Faker::Lorem.paragraph(random_sentences_to_add: 10)
+    )
+end
+
+5.times do
+    Tag.create(name: Faker::Color.unique.color_name)
+    Tag.create(name: Faker::Commerce.unique.material)
+    Tag.create(name: Faker::Commerce.unique.color)
+    Tag.create(name: Faker::Commerce.unique.department(max: 1))
+end
 
 puts "Seeding done."
