@@ -2,6 +2,9 @@ import Table from "../../components/Admin/Table/Table"
 import { useUsers } from "../../hooks/user-hooks"
 import { useMemo } from "react";
 import Checkmark from "../../components/Admin/Checkmark/Checkmark";
+import TableSkeleton from "../../components/Admin/TableSkeleton/TableSkeleton";
+import { humanReadableDate } from "../../helpers/helper";
+
 const UsersPage = () => {
   const users = useUsers()
   const columns = useMemo(
@@ -33,6 +36,7 @@ const UsersPage = () => {
           {
             Header: "Created At",
             accessor: "createdAt",
+            Cell: ({ cell: { value } }) => humanReadableDate(value)
           }
         ],
       }
@@ -41,10 +45,14 @@ const UsersPage = () => {
   )
 
   if (users.isError) return <h1>Something went wrong!</h1>
-  if (users.isLoading) return <h1>Loading...</h1>
+
   return (
     <div className="bg-white h-full overflow-y-scroll">
-      <Table columns={columns} data={users?.data?.data?.data?.users} />
+      {users.isLoading ? (
+        <TableSkeleton />
+      ) : (
+        <Table columns={columns} data={users?.data?.data?.data?.users} />
+      )}
     </div>
   )
 }
