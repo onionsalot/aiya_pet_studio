@@ -44,15 +44,15 @@ const UsersPage = () => {
     []
   )
 
-  if (users.isError) return <h1>Something went wrong!</h1>
+  const content = () => {
+    if (users.isError) return <h1>Something went wrong!</h1>
+    if (users.isLoading) return <TableSkeleton />
+    return <Table columns={columns} data={users?.data?.data?.data?.users} />
+  }
 
   return (
     <div className="bg-white h-full overflow-y-scroll">
-      {users.isLoading ? (
-        <TableSkeleton />
-      ) : (
-        <Table columns={columns} data={users?.data?.data?.data?.users} />
-      )}
+      {content()}
     </div>
   )
 }

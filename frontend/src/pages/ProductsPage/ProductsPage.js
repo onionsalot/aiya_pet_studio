@@ -35,16 +35,16 @@ const ProductsPage = () => {
     []
   )
 
-  if (products.isError) return <h1>Something went wrong!</h1>
+  const content = () => {
+    if (products.isError) return <h1>Something went wrong!</h1>
+    if (products.isLoading) return <TableSkeleton />
+    return <Table columns={columns} data={products?.data?.data?.data?.products} />
+  }
 
   return (
     <div className="bg-white h-full overflow-y-scroll">
       <Link className="admin-form-submit w-24 ml-2" to="/admin/products/create">+ Add</Link>
-      {products.isLoading ? (
-        <TableSkeleton />
-      ) : (
-        <Table columns={columns} data={products?.data?.data?.data?.products} />
-      )}
+      {content()}
     </div>
   )
 }

@@ -31,16 +31,16 @@ const TagsPage = () => {
     []
   )
 
-  if (tags.isError) return <h1>Something went wrong!</h1>
+  const content = () => {
+    if (tags.isError) return <h1>Something went wrong!</h1>
+    if (tags.isLoading) return <TableSkeleton />
+    return <Table columns={columns} data={tags?.data?.data?.data?.tags} />
+  }
 
   return (
     <div className="bg-white h-full overflow-y-scroll">
       <Link className="admin-form-submit w-24 ml-2" to="/admin/tags/create">+ Add</Link>
-      {tags.isLoading ? (
-        <TableSkeleton />
-      ) : (
-        <Table columns={columns} data={tags?.data?.data?.data?.tags} />
-      )}
+      {content()}
     </div>
   )
 }
