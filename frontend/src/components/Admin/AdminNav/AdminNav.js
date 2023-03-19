@@ -27,6 +27,7 @@ const AdminNav = () => {
             <li><NavLink url="/admin/dashboard" text="Categories"/></li>
             <li><NavLink url="/admin/dashboard" text="Invoices"/></li>
             <li><NavLink url="/admin/dashboard" text="Reviews"/></li>
+            <li><NavLink url="/admin/featured-products" text="Featured Products"/></li>
           </ul>
         </div>
       </div>

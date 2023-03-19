@@ -10,6 +10,8 @@ import TagsPage from "../pages/TagsPage/TagsPage"
 import CreateUpdateTag from "../pages/CreateUpdateTag/CreateUpdateTag"
 import ProductsPage from "../pages/ProductsPage/ProductsPage"
 import CreateUpdateProduct from "../pages/CreateUpdateProduct/CreateUpdateProduct"
+import FeaturedProductsPage from "../pages/FeaturedProductsPage/FeaturedProductsPage"
+import CreateUpdateFeaturedProduct from "../pages/CreateUpdateFeaturedProduct/CreateUpdateFeaturedProduct"
 import { SkeletonTheme } from 'react-loading-skeleton';
 
 function AdminRoutes() {
@@ -94,12 +96,35 @@ function AdminRoutes() {
                   </ProtectedRoute>
                 }
               />
+              <Route
+                path="featured-products"
+                element={
+                  <ProtectedRoute isAllowed={!!user && user.admin}>
+                    <FeaturedProductsPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="featured-products/:id"
+                element={
+                  <ProtectedRoute isAllowed={!!user && user.admin}>
+                    <CreateUpdateFeaturedProduct />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="featured-products/create"
+                element={
+                  <ProtectedRoute isAllowed={!!user && user.admin}>
+                    <CreateUpdateFeaturedProduct />
+                  </ProtectedRoute>
+                }
+              />
             </Routes>
           </div>
         </div>
       </div>
     </SkeletonTheme>
-    
   )
 }
 
