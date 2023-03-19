@@ -48,4 +48,8 @@ end
     Tag.create(name: Faker::Commerce.unique.department(max: 1))
 end
 
+4.times do
+    FeaturedProduct.create(product_id: nil)
+end
+
 puts "Seeding done."
