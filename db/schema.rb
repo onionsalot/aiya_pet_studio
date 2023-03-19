@@ -10,16 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_17_212120) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_19_005916) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "display"
-    t.integer "order"
-    t.string "link_to"
+    t.string "display", default: ""
+    t.integer "order", default: 0
+    t.string "link_to", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "featured_products", force: :cascade do |t|
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_featured_products_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -83,4 +90,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_212120) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "featured_products", "products"
 end
