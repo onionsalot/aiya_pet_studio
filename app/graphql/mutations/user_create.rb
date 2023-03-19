@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
 module Mutations
-  class UserUpdate < BaseMutation
-    description "Updates a user by id"
+  class UserCreate < BaseMutation
+    description "Creates a new user"
 
-    field :user, Types::UserType, null: false
-
-    argument :id, ID, required: true
     argument :first_name, String, required: true
     argument :middle_name, String, required: false
     argument :last_name, String, required: true
@@ -22,23 +19,23 @@ module Mutations
     argument :phone_number, String, required: false
 
 
-    def resolve(id:, first_name:, middle_name:, last_name:, gender:, email:, password:, address1:, address2:, country:, city:, state:, zipcode:, phone_number:)
+    field :user, Types::UserType, null: true
+
+    def resolve(first_name: nil, middle_name: nil, last_name: nil, gender: nil, email: nil, password: nil, address1: nil, address2: nil, city: nil, state: nil, country: nil, zipcode: nil, phone_number: nil)
       begin
         raise "Not an Admin" unless context[:current_user].admin?
 
-        user = User.find_by!(id: id)
-        service = UserService.new(user: user)
-        service.update_user!(
-          first_name: first_name, 
-          middle_name: middle_name, 
-          last_name: last_name, 
-          gender: gender, 
+        user = UserService.create_user!(
+          first_name: first_name,
+          middle_name: first_name,
+          last_name: last_name,
+          gender: gender,
           email: email,
-          password: password, 
-          address1: address1, 
+          password: password,
+          address1: address1,
           address2: address2,
           city: city,
-          state: state,
+          state: state, 
           country: country,
           zipcode: zipcode,
           phone_number: phone_number
@@ -46,7 +43,7 @@ module Mutations
 
         { user: user }
       rescue StandardError => e
-        raise GraphQL::ExecutionError.new e || "Error updating user"
+        raise GraphQL::ExecutionError.new e || "Error creating user"
       end
     end
   end
