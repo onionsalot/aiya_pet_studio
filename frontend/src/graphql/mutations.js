@@ -86,3 +86,15 @@ export const UPDATE_FEATURED_PRODUCT = {
     }
   `
 }
+
+export const DELETE_FEATURED_PRODUCT = {
+  query: `
+    mutation ($id: ID!) {
+      featuredProductDelete(input: {id: $id}) {
+        featuredProduct {
+          id
+        }
+      }
+    }    
+  `
+}
