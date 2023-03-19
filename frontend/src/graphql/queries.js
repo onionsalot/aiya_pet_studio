@@ -63,3 +63,29 @@ export const GET_ONE_TAG = {
     }
   `,
 };
+
+export const GET_ALL_FEATURED_PRODUCTS = {
+  query: `
+    query AllFeaturedProducts {
+      featuredProducts {
+        id,
+        productId
+        createdAt
+        updatedAt
+      }
+    }
+  `,
+}
+
+export const GET_ONE_FEATURED_PRODUCT = {
+  query: `
+    query OneFeaturedProducts($id: ID!) {
+      featuredProduct(id: $id) {
+        id,
+        productId
+        createdAt
+        updatedAt
+      }
+    }
+  `,
+};

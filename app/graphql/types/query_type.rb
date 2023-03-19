@@ -5,5 +5,7 @@ module Types
     field :product, resolver: Queries::OneProduct
     field :tags, resolver: Queries::AllTags
     field :tag, resolver: Queries::OneTag
+    field :featured_products, resolver: Queries::AllFeaturedProducts
+    field :featured_product, resolver: Queries::OneFeaturedProduct
   end
 end
