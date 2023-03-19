@@ -74,3 +74,15 @@ export const ADD_NEW_FEATURED_PRODUCT = {
     }        
   `
 }
+
+export const UPDATE_FEATURED_PRODUCT = {
+  query: `
+    mutation ($id: ID!, $productId: Int!) {
+      featuredProductUpdate(input: {id: $id, productId: $productId}) {
+        featuredProduct {
+          id
+        }
+      }
+    }
+  `
+}
