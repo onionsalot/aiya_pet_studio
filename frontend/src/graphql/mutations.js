@@ -62,3 +62,15 @@ export const UPDATE_TAG = {
     }
   `
 }
+
+export const ADD_NEW_FEATURED_PRODUCT = {
+  query: `
+    mutation ($productId: Int!) {
+      featuredProductCreate(input: {productId: $productId}) {
+        featuredProduct {
+          id
+        }
+      }
+    }        
+  `
+}
