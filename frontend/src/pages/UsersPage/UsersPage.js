@@ -44,15 +44,17 @@ const UsersPage = () => {
     []
   )
 
-  const content = () => {
-    if (users.isError) return <h1>Something went wrong!</h1>
-    if (users.isLoading) return <TableSkeleton />
-    return <Table columns={columns} data={users?.data?.data?.data?.users} />
-  }
+  const content = useMemo(
+    () => {
+      if (users.isError) return <h1>Something went wrong!</h1>
+      if (users.isLoading) return <TableSkeleton />
+      return <Table columns={columns} data={users?.data?.data?.data?.users} />
+    }, [users]
+  )
 
   return (
     <div className="bg-white h-full overflow-y-scroll">
-      {content()}
+      {content}
     </div>
   )
 }
