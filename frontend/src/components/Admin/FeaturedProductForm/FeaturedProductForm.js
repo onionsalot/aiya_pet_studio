@@ -39,7 +39,7 @@ const FeaturedProductForm = () => {
         <label className="admin-form-label">
           Product:
           <input
-            className="form-input admin-form-input"
+            className="admin-form-input"
             defaultValue={id ? featuredProduct.data.data.data.featuredProduct.productId : ''}
             type="number"
             name="productId"
