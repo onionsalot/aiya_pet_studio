@@ -46,7 +46,7 @@ const FeaturedProductsPage = () => {
 
   return (
     <div className="bg-white h-full overflow-y-scroll">
-      <Link className="admin-form-submit w-24 ml-2" to="/admin/featured-product/create">+ Add</Link>
+      <Link className="admin-form-submit w-24 ml-2" to="/admin/featured-products/create">+ Add</Link>
       {content}
     </div>
   )
