@@ -1,5 +1,4 @@
 import React from "react"
-import Dashboard from "../pages/Dashboard/Dashboard"
 import AuthPage from "../pages/AuthPage/AuthPage"
 import Navbar from "../components/Navbar/Navbar"
 import { Routes, Route } from "react-router-dom"
@@ -7,7 +6,9 @@ import ProtectedRoute from "./ProtectedRoute"
 import ResetPassword from "../components/Auth/ResetPassword"
 import Confirmation from "../components/Auth/Confirmation"
 import { useBoundStore } from "../stores/useBoundStore"
+
 import Header from "../components/Header/Header"
+import Homepage from "../pages/Client/Homepage/Homepage"
 
 function UserRoutes() {
   const user = useBoundStore((state) => state.user)
@@ -16,7 +17,7 @@ function UserRoutes() {
       <Header />
       <Navbar />
       <Routes>
-        <Route path="/app" element={<Dashboard />} />
+        <Route path="/app" element={<Homepage />} />
         <Route
           path="/app/login"
           element={
