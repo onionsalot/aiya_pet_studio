@@ -2,6 +2,7 @@ import { useRef } from "react"
 import { useFeaturedProduct } from "../../../hooks/featured-product-hooks"
 import { useMutate } from "../../../hooks/use-mutate"
 import { useParams } from "react-router"
+import FormSkeleton from "../Skeletons/FormSkeleton/FormSkeleton"
 
 const FeaturedProductForm = () => {
   const formRef = useRef()
@@ -11,7 +12,7 @@ const FeaturedProductForm = () => {
   let featuredProduct = useFeaturedProduct({ "id": id });
 
   if (featuredProduct.isError) return <h1>Something went wrong!</h1>
-  if (featuredProduct.isLoading) return <h1>Loading...</h1>
+  if (featuredProduct.isLoading) return <FormSkeleton count={1}/>
 
   const handleSubmit = async (e) => {
     e.preventDefault()
