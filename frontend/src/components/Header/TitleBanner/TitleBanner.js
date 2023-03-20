@@ -15,12 +15,12 @@ const TitleBanner = () => {
 
   const authenticatedOptions = (
     <>
-      <li className="rounded-t-md bg-violet-50 py-2 px-4 hover:bg-violet-100 block whitespace-nowrap">
+      <li className="rounded-t-md bg-violet-50 py-2 px-4 hover:bg-violet-100 hover:text-indigo-500 block whitespace-nowrap ease-in duration-150">
         <Link to="/app/account">
           My Account
         </Link>
       </li>
-      <li className="rounded-b-md bg-violet-50 py-2 px-4 hover:bg-violet-100 block whitespace-nowrap">
+      <li className="rounded-b-md bg-violet-50 py-2 px-4 hover:bg-violet-100 hover:text-indigo-500 block whitespace-nowrap ease-in duration-150">
         <Logout />
       </li>
     </>
@@ -28,12 +28,12 @@ const TitleBanner = () => {
 
   const unauthenticatedOptions = (
     <>
-      <li className="rounded-t-md bg-violet-50 py-2 px-4 hover:bg-violet-100 block whitespace-nowrap">
+      <li className="rounded-t-md bg-violet-50 py-2 px-4 hover:bg-violet-100 hover:text-indigo-500 block whitespace-nowrap ease-in duration-150">
         <Link to="/app/login">
           Log In
         </Link>
       </li>
-      <li className="rounded-b-md bg-violet-50 py-2 px-4 hover:bg-violet-100 block whitespace-nowrap">
+      <li className="rounded-b-md bg-violet-50 py-2 px-4 hover:bg-violet-100 hover:text-indigo-500 block whitespace-nowrap ease-in duration-150">
         <Link to="/app/login">
           Register
         </Link>
@@ -55,7 +55,7 @@ const TitleBanner = () => {
           <button>
             <span className="hover:text-indigo-400 ease-in duration-150">{userIcon}{dropdownIcon}</span>
           </button>
-          <ul className="absolute -left-8 hidden group-hover:block drop-shadow-lg ease-in duration-300">
+          <ul className="absolute -left-8 hidden group-hover:block drop-shadow-lg">
             {user ? authenticatedOptions : unauthenticatedOptions}
           </ul>
         </div>
