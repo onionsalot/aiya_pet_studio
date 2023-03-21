@@ -2,16 +2,15 @@ import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from "@fortawesome/free-regular-svg-icons"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
-import { BiShoppingBag, BiSearch } from "react-icons/bi"
 import { useBoundStore } from "../../../stores/useBoundStore"
 import Logout from "../../Auth/Logout"
+import SearchBar from "./SearchBar"
+import CartIcon from "./CartIcon"
 
 const TitleBanner = () => {
   const user = useBoundStore((state) => state.user)
-  const searchIcon = <BiSearch className="text-2xl" />
   const userIcon = <FontAwesomeIcon icon={faUser} className="text-2xl" />
   const dropdownIcon = <FontAwesomeIcon icon={faCaretDown} className="text-base" />
-  const bagIcon = <BiShoppingBag className="text-3xl" />
 
   const authenticatedOptions = (
     <>
@@ -47,10 +46,7 @@ const TitleBanner = () => {
         <Link to="/">Aiya Pet Studio</Link>
       </h1>
       <div className="flex text-gray-600">
-        <div className="flex border-2 rounded-md border-gray-600 mr-2 px-1 hover:border-indigo-400 ease-in duration-150">
-          <input type="text" className="bg-transparent focus:outline-none"></input>
-          <button className="hover:text-indigo-400 ease-in duration-150">{searchIcon}</button>
-        </div>
+        <SearchBar />
         <div className="group inline-block relative mx-2 mt-1 ">
           <button className="hover:text-indigo-400 ease-in duration-150">
             <span>{userIcon}{dropdownIcon}</span>
@@ -59,7 +55,7 @@ const TitleBanner = () => {
             {user ? authenticatedOptions : unauthenticatedOptions}
           </ul>
         </div>
-        <Link to="/app/cart" className="hover:text-indigo-400 ease-in duration-150">{bagIcon}</Link>
+        <CartIcon />
       </div>
     </div>
   )
