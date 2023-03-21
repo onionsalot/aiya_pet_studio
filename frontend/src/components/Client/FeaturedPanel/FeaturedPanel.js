@@ -12,7 +12,7 @@ const FeaturedPanel = () => {
       return Array(4)
         .fill()
         .map((_, i) => (
-          <FeaturedProductCardSkeleton width={100} height={20} key={i} />
+          <FeaturedProductCardSkeleton key={i} />
         ));
     return featuredProducts?.data?.data?.data?.featuredProducts.map(
       (featuredProduct, i) => <FeaturedProductCard product={featuredProduct.product} key={i} />

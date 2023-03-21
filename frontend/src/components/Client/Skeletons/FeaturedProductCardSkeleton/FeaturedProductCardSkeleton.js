@@ -15,7 +15,7 @@ const FeaturedProductCardSkeleton = () => {
           transition
           duration-300"
       >
-        <Skeleton height="100%"/>
+        <Skeleton height="100%" baseColor='#ffeaf1' highlightColor='#fff5f7'/>
       </div>
     </div>
   );
