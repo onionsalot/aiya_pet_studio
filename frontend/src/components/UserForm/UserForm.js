@@ -19,37 +19,37 @@ const UserForm = () => {
     const data = Object.fromEntries(formData)
     if (!id) {
       const input = {
-        first_name: data.first_name,
-        middle_name: data.middle_name,
-        last_name: data.last_name,
+        first_name: data.firstName,
+        middle_name: data.middleName,
+        last_name: data.lastName,
         gender: data.gender,
         email: data.email,
-        password: data.password,
+        admin: data.admin,
         address1: data.address1,
         address2: data.address2,
         city: data.city,
         state: data.state,
         country: data.country,
         zipcode: data.zipcode,
-        phone_number: data.phone_number
+        phone_number: data.phoneNumber
       }
       addUser.mutate(input)
     } else {
       const input = {
         id: id,
-        first_name: data.first_name,
-        middle_name: data.middle_name,
-        last_name: data.last_name,
+        first_name: data.firstName,
+        middle_name: data.middleName,
+        last_name: data.lastName,
         gender: data.gender,
         email: data.email,
-        password: data.password,
+        admin: data.admin,
         address1: data.address1,
         address2: data.address2,
         city: data.city,
         state: data.state,
         country: data.country,
         zipcode: data.zipcode,
-        phone_number: data.phone_number
+        phone_number: data.phoneNumber
       }
       updateUser.mutate(input)
     }
@@ -63,9 +63,9 @@ const UserForm = () => {
           First Name:
           <input
             className="form-input admin-form-input"
-            defaultValue={user?.data?.data?.data?.user.first_name && user.data.data.data.user.first_name}
+            defaultValue={user?.data?.data?.data?.user.firstName && user.data.data.data.user.firstName}
             type="text"
-            name="first_name"
+            name="firstName"
             required
           />
         </label>
@@ -73,18 +73,18 @@ const UserForm = () => {
           Middle Name:
           <input
             className="admin-form-input"
-            defaultValue={user?.data?.data?.data?.user.middle_name && user.data.data.data.user.middle_name}
+            defaultValue={user?.data?.data?.data?.user.middleName && user.data.data.data.user.middleName}
             type="text"
-            name="middle_name"
+            name="middleName"
           />
         </label>
         <label className="admin-form-label">
           Last Name:
           <textarea
             className="admin-form-input"
-            defaultValue={user?.data?.data?.data?.user.last_name && user.data.data.data.user.last_name}
+            defaultValue={user?.data?.data?.data?.user.lastName && user.data.data.data.user.lastName}
             type="text"
-            name="last_name"
+            name="lastName"
             required
           />
         </label>
@@ -109,12 +109,12 @@ const UserForm = () => {
           />
         </label>
         <label className="admin-form-label">
-          Password:
+          Admin:
           <textarea
             className="admin-form-input"
-            defaultValue={user?.data?.data?.data?.user.password && user.data.data.data.user.password}
+            defaultValue={user?.data?.data?.data?.user.admin && user.data.data.data.user.admin}
             type="text"
-            name="password"
+            name="admin"
             required
           />
         </label>
@@ -182,9 +182,9 @@ const UserForm = () => {
           Phone Number:
           <textarea
             className="admin-form-input"
-            defaultValue={user?.data?.data?.data?.user.phone_number && user.data.data.data.user.phone_number}
+            defaultValue={user?.data?.data?.data?.user.phoneNumber && user.data.data.data.user.phoneNumber}
             type="text"
-            name="phone_number"
+            name="phoneNumber"
             required
           />
         </label>

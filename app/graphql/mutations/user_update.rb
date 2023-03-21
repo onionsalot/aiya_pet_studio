@@ -12,7 +12,6 @@ module Mutations
     argument :last_name, String, required: true
     argument :gender, String, required: true
     argument :email, String, required: true
-    argument :password, String, required: true
     argument :address1, String, required: true
     argument :address2, String, required: true
     argument :city, String, required: true
@@ -22,7 +21,7 @@ module Mutations
     argument :phone_number, String, required: false
 
 
-    def resolve(id:, first_name:, middle_name:, last_name:, gender:, email:, password:, address1:, address2:, country:, city:, state:, zipcode:, phone_number:)
+    def resolve(id:, first_name:, middle_name:, last_name:, gender:, email:, address1:, address2:, country:, city:, state:, zipcode:, phone_number:)
       begin
         raise "Not an Admin" unless context[:current_user].admin?
 
@@ -34,7 +33,6 @@ module Mutations
           last_name: last_name, 
           gender: gender, 
           email: email,
-          password: password, 
           address1: address1, 
           address2: address2,
           city: city,

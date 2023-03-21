@@ -5,7 +5,6 @@ module Types
     field :id, ID, null: false
     field :first_name, String, null: false
     field :email, String, null: false
-    field :password, String, null: false
     field :address1, String, null: false
     field :admin, Boolean, null: false
     field :remember_created_at, GraphQL::Types::ISO8601DateTime

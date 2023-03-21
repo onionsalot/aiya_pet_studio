@@ -50,7 +50,7 @@ export const GET_ONE_USER = {
         lastName
         gender
         email
-        password
+        admin
         address1
         address2
         city
