@@ -6,8 +6,10 @@ import {
   UPDATE_TAG,
   ADD_NEW_TAG,
   ADD_NEW_FEATURED_PRODUCT,
-  UPDATE_FEATURED_PRODUCT
+  UPDATE_FEATURED_PRODUCT,
+  UPDATE_USER
 } from "../graphql/mutations"
+
 import { gqlHelper } from "../helpers/gql-helper"
 import toast from 'react-hot-toast'
 
@@ -58,7 +60,7 @@ export const useMutate = () => {
       }
     })
 
-    const addTag = useMutation((input) => gqlHelper(ADD_NEW_TAG, input),
+  const addTag = useMutation((input) => gqlHelper(ADD_NEW_TAG, input),
     {
       onSuccess: (response) => {
         checkResponse(response, 'get-all-tags')
@@ -68,7 +70,7 @@ export const useMutate = () => {
       }
     })
 
-    const updateTag = useMutation((input) => gqlHelper(UPDATE_TAG, input),
+  const updateTag = useMutation((input) => gqlHelper(UPDATE_TAG, input),
     {
       onSuccess: (response) => {
         checkResponse(response, 'get-all-tags', 'get-one-tag')
@@ -78,7 +80,7 @@ export const useMutate = () => {
       }
     })
 
-    const addFeaturedProduct = useMutation((input) => gqlHelper(ADD_NEW_FEATURED_PRODUCT, input),
+  const addFeaturedProduct = useMutation((input) => gqlHelper(ADD_NEW_FEATURED_PRODUCT, input),
     {
       onSuccess: (response) => {
         checkResponse(response, 'get-all-featured-products')
@@ -88,7 +90,17 @@ export const useMutate = () => {
       }
     })
 
-    const updateFeaturedProduct = useMutation((input) => gqlHelper(UPDATE_FEATURED_PRODUCT, input),
+  const updateUser = useMutation((input) => gqlHelper(UPDATE_USER, input),
+    {
+      onSuccess: (response) => {
+        checkResponse(response, 'get-all-users', 'get-one-user')
+      },
+      onError: (e) => {
+        sendError(e.response.data.errors[0].message)
+      }
+    })
+
+  const updateFeaturedProduct = useMutation((input) => gqlHelper(UPDATE_FEATURED_PRODUCT, input),
     {
       onSuccess: (response) => {
         checkResponse(response, 'get-all-featured-products', 'get-one-featured-product')
@@ -105,6 +117,7 @@ export const useMutate = () => {
     addTag,
     updateTag,
     addFeaturedProduct,
-    updateFeaturedProduct
+    updateFeaturedProduct,
+    updateUser
   }
 }
