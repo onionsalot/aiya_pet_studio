@@ -1,5 +1,13 @@
 import { useMutation, useQueryClient } from "react-query"
-import { ADD_NEW_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT, UPDATE_TAG, ADD_NEW_TAG } from "../graphql/mutations"
+import {
+  ADD_NEW_PRODUCT,
+  UPDATE_PRODUCT,
+  DELETE_PRODUCT,
+  UPDATE_TAG,
+  ADD_NEW_TAG,
+  ADD_NEW_FEATURED_PRODUCT,
+  UPDATE_FEATURED_PRODUCT
+} from "../graphql/mutations"
 import { gqlHelper } from "../helpers/gql-helper"
 import toast from 'react-hot-toast'
 
@@ -70,11 +78,33 @@ export const useMutate = () => {
       }
     })
 
+    const addFeaturedProduct = useMutation((input) => gqlHelper(ADD_NEW_FEATURED_PRODUCT, input),
+    {
+      onSuccess: (response) => {
+        checkResponse(response, 'get-all-featured-products')
+      },
+      onError: (e) => {
+        sendError(e.response.data.errors[0].message)
+      }
+    })
+
+    const updateFeaturedProduct = useMutation((input) => gqlHelper(UPDATE_FEATURED_PRODUCT, input),
+    {
+      onSuccess: (response) => {
+        checkResponse(response, 'get-all-featured-products', 'get-one-featured-product')
+      },
+      onError: (e) => {
+        sendError(e.response.data.errors[0].message)
+      }
+    })
+
   return {
     addProduct,
     deleteProduct,
     updateProduct,
     addTag,
-    updateTag
+    updateTag,
+    addFeaturedProduct,
+    updateFeaturedProduct
   }
 }

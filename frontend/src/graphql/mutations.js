@@ -62,3 +62,39 @@ export const UPDATE_TAG = {
     }
   `
 }
+
+export const ADD_NEW_FEATURED_PRODUCT = {
+  query: `
+    mutation ($productId: Int!) {
+      featuredProductCreate(input: {productId: $productId}) {
+        featuredProduct {
+          id
+        }
+      }
+    }        
+  `
+}
+
+export const UPDATE_FEATURED_PRODUCT = {
+  query: `
+    mutation ($id: ID!, $productId: Int!) {
+      featuredProductUpdate(input: {id: $id, productId: $productId}) {
+        featuredProduct {
+          id
+        }
+      }
+    }
+  `
+}
+
+export const DELETE_FEATURED_PRODUCT = {
+  query: `
+    mutation ($id: ID!) {
+      featuredProductDelete(input: {id: $id}) {
+        featuredProduct {
+          id
+        }
+      }
+    }    
+  `
+}
