@@ -43,9 +43,6 @@ function UserRoutes() {
         />
         <Route
           path="/app/cart"
-          // element={
-          //   <Cart />
-          // }
         />
       </Routes>
     </>
