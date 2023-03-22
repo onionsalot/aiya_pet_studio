@@ -7,13 +7,13 @@ import ProtectedRoute from "./ProtectedRoute"
 import ResetPassword from "../components/Auth/ResetPassword"
 import Confirmation from "../components/Auth/Confirmation"
 import { useBoundStore } from "../stores/useBoundStore"
-import TitleBanner from "../components/Header/TitleBanner/TitleBanner"
+import Header from "../components/Header/Header"
 
 function UserRoutes() {
   const user = useBoundStore((state) => state.user)
   return (
     <>
-      <TitleBanner />
+      <Header />
       <Navbar />
       <Routes>
         <Route path="/app" element={<Dashboard />} />
