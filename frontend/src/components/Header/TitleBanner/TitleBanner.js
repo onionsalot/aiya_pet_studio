@@ -45,7 +45,7 @@ const TitleBanner = () => {
     <div className="w-full h-20 flex justify-between items-center bg-gradient-to-r from-indigo-400 to-pink-200 px-6">
       <h1 className="text-white text-3xl">
         <Link to="/">
-          <img src={logo} alt="Logo"/>
+          <img src={logo} alt="Logo" className="drop-shadow-md"/>
         </Link>
       </h1>
       <div className="flex text-gray-600">
