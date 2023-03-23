@@ -6,6 +6,7 @@ import { useBoundStore } from "../../../stores/useBoundStore"
 import Logout from "../../Auth/Logout"
 import SearchBar from "./SearchBar"
 import CartIcon from "./CartIcon"
+import logo from "../../../images/logo.png"
 
 const TitleBanner = () => {
   const user = useBoundStore((state) => state.user)
@@ -43,7 +44,9 @@ const TitleBanner = () => {
   return (
     <div className="w-full h-20 flex justify-between items-center bg-gradient-to-r from-indigo-400 to-pink-200 px-6">
       <h1 className="text-white text-3xl">
-        <Link to="/">Aiya Pet Studio</Link>
+        <Link to="/">
+          <img src={logo} alt="Logo" className="drop-shadow-md"/>
+        </Link>
       </h1>
       <div className="flex text-gray-600">
         <SearchBar />
