@@ -40,6 +40,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :trackable
   enum :gender, [:woman, :man, :transgender, :non_binary, :unknown]
+
+  has_one :potential_user
   
   def full_name
     [first_name, middle_name, last_name].compact.join(' ')
