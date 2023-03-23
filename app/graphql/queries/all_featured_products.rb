@@ -3,7 +3,7 @@ module Queries
     type [Types::FeaturedProductType], null: false
     description "Query all Featured Products"
     def resolve
-      return FeaturedProduct.all
+      return FeaturedProduct.order(:id)
     rescue
       raise GraphQL::ExecutionError.new "Unable to fetch featured products"
     end

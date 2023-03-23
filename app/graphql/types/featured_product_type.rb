@@ -6,5 +6,10 @@ module Types
     field :product_id, Integer
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+    field :product, Types::ProductType, null: true
+  end
+
+  def product
+    object.product
   end
 end

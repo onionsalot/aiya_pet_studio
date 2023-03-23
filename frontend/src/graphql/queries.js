@@ -72,6 +72,11 @@ export const GET_ALL_FEATURED_PRODUCTS = {
         productId
         createdAt
         updatedAt
+        product {
+          id
+          name
+          description
+        }
       }
     }
   `,

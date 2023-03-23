@@ -12,9 +12,9 @@ const Logout = () => {
   };
 
   return (
-    <div class="mr-3 cursor-pointer" onClick={handleClick}>
+    <div className="mr-3 cursor-pointer" onClick={handleClick}>
       {logoutIcon}
-      <input type="button" value="Logout" class="ml-1 cursor-pointer" />
+      <input type="button" value="Logout" className="ml-1 cursor-pointer" />
     </div>
   );
 };
