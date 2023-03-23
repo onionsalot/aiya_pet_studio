@@ -16,12 +16,12 @@ module.exports = {
       },
       keyframes: {
         lengthen: {
-          '0%': { width: '0' },
-          '100%': { width: '100%' },
+          '0%': { width: '0', opacity: '.3' },
+          '100%': { width: '100%', opacity: '1' },
         }
       },
       animation: {
-        lengthen: 'lengthen 1s 1'
+        lengthen: 'lengthen 1.2s 1'
       }
     },
   },
