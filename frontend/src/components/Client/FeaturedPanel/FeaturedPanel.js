@@ -20,7 +20,7 @@ const FeaturedPanel = () => {
   }, [featuredProducts]);
 
   return (
-    <div class="w-full mx-auto flex flex-wrap text-center max-w-6xl">
+    <div className="w-full mx-auto flex flex-wrap text-center max-w-6xl">
       {content}
     </div>
   );

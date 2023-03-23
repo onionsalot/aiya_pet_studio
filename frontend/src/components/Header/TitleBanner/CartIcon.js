@@ -7,8 +7,8 @@ const CartIcon = () => {
   return (
     <Link to="/app/cart" className="relative hover:text-indigo-400 ease-in duration-150">
       {bagIcon}
-      <span class="absolute -right-3 -top-1">
-        <div class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-bold bg-cyan-500 opacity-70 text-white border-2">
+      <span className="absolute -right-3 -top-1">
+        <div className="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-bold bg-cyan-500 opacity-70 text-white border-2">
           0
         </div>
       </span>

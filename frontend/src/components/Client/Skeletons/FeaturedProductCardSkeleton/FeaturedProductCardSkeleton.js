@@ -3,9 +3,9 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const FeaturedProductCardSkeleton = () => {
   return (
-    <div class="w-1/2 sm:w-1/4 aspect-square">
+    <div className="w-1/2 sm:w-1/4 aspect-square">
       <div
-        class="
+        className="
           m-2
           h-5/6
           rounded-md

@@ -47,7 +47,7 @@ const Registration = () => {
           onSubmit={handleSubmit}
           className="w-full max-w-2xl"
         >
-          <div class="form-grid">
+          <div className="form-grid">
             <div className="w-2/3 px-3">
               <label className="form-label">
                 First Name
@@ -72,7 +72,7 @@ const Registration = () => {
               </label>
             </div>
           </div>
-          <div class="form-grid">
+          <div className="form-grid">
             <div className="w-2/3 px-3">
               <label className="form-label">
                 Last Name
@@ -85,7 +85,7 @@ const Registration = () => {
                 />
               </label>
             </div>
-            <div class="w-1/3 px-3">
+            <div className="w-1/3 px-3">
               <label className="form-label">
                 Gender
                 <select className="form-input " name="gender" required>

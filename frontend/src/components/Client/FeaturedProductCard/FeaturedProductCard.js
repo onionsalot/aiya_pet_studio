@@ -1,10 +1,10 @@
 const FeaturedProductCard = ({ product }) => {
   const SAMPLEIMAGE = 'https://i.etsystatic.com/24762991/r/il/6f40cb/2951681622/il_794xN.2951681622_obfu.jpg'
   return (
-    <div class="w-1/2 sm:w-1/4 aspect-square">
+    <div className="w-1/2 sm:w-1/4 aspect-square">
       <div 
         style={{backgroundImage: `url(${SAMPLEIMAGE})`}}
-        class="
+        className="
           m-2
           p-3
           h-5/6
