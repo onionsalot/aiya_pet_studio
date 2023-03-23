@@ -1,4 +1,5 @@
 import Announcement from "./Announcement/Announcement"
+import NavBar from "./Navbar/Navbar"
 import TitleBanner from "./TitleBanner/TitleBanner"
 
 const Header = () => {
@@ -8,6 +9,7 @@ const Header = () => {
     <>
       <Announcement message={message} />
       <TitleBanner />
+      <NavBar />
     </>
   )
 }
