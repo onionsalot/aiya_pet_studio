@@ -1,10 +1,6 @@
-import { useState } from 'react'
-
 import NavbarLink from "./NavbarLink"
 
 const DesktopNavbar = () => {
-  const [show, setShow] = useState(false)
-
   return (
     <nav className="max-w-4xl mx-auto">
       <div className="w-full tracking-wide md:text-lg text-gray-700">
