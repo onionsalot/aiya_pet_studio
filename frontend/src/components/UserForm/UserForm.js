@@ -1,5 +1,5 @@
 import { useMutate } from "../../hooks/use-mutate"
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect} from "react"
 import { useUser } from "../../hooks/user-hooks"
 import { useParams } from "react-router"
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
@@ -7,15 +7,19 @@ import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 const UserForm = () => {
   const formRef = useRef()
   const { updateUser } = useMutate()
-  const { addUser } = useMutate()
   const { id } = useParams()
   const user = useUser({ "id": id })
   const isAdmin = user?.data?.data?.data.user.admin
 
   const fetchedCountry = user?.data?.data?.data?.user.country;
   const fetchedState = user?.data?.data?.data?.user.state;
-  const [country, setCountry] = useState(fetchedCountry || "");
-  const [region, setRegion] = useState(fetchedState || "");
+  const [country, setCountry] = useState("");
+  const [region, setRegion] = useState("");
+
+  useEffect(() => {
+    if (fetchedCountry) setCountry(fetchedCountry);
+    if (fetchedState) setRegion(fetchedState);
+  }, [fetchedCountry, fetchedState]);
 
   if (user.isError) return <h1>Something went wrong!</h1>
   if (user.isLoading) return <h1>Loading...</h1>
@@ -32,22 +36,7 @@ const UserForm = () => {
     data.country = country;
     data.state = region;
     if (!id) {
-      const input = {
-        first_name: data.firstName,
-        middle_name: data.middleName,
-        last_name: data.lastName,
-        gender: data.gender,
-        email: data.email,
-        admin: adminValue,
-        address1: data.address1,
-        address2: data.address2,
-        city: data.city,
-        state: region,
-        country: country,
-        zipcode: data.zipcode,
-        phone_number: data.phoneNumber
-      }
-      addUser.mutate(input)
+        console.log('No user found')
     } else {
       const input = {
         id: id,
@@ -205,4 +194,5 @@ const UserForm = () => {
     </>
   )
 }
+
 export default UserForm

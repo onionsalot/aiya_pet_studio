@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import Checkmark from "../../components/Admin/Checkmark/Checkmark";
 import TableSkeleton from "../../components/Admin/TableSkeleton/TableSkeleton";
 import { humanReadableDate } from "../../helpers/helper";
-import { Link } from "react-router-dom";
 
 const UsersPage = () => {
   const users = useUsers()
@@ -56,7 +55,6 @@ const UsersPage = () => {
   return (
     <div className="bg-white h-full overflow-y-scroll">
       {content}
-            <Link className="admin-form-submit w-24 ml-2" to="/admin/users/create">+ Add</Link>
       <Table columns={columns} data={users?.data?.data?.data?.users} />
     </div>
   )

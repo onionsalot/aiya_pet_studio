@@ -1,8 +1,4 @@
 class UserService
-    def self.create_user!(**args)
-      User.create!(args)
-    end
-  
     def initialize(user:)
       @user = user
     end

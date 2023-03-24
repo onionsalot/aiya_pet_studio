@@ -87,31 +87,6 @@ export const UPDATE_FEATURED_PRODUCT = {
   `
 }
 
-export const ADD_NEW_USER = {
-  query: `
-    mutation ($first_name: String!, $middle_name: String!, $last_name: String!, $gender: String!, $email: String!, $admin: Boolean!, $address1: String!, $address2: String!, $city: String!, $state: String!, $country: String!, $zipcode: String!, $phone_number: String!) {
-      userCreate(input: {firstName: $first_name, middleName: $middle_name, lastName: $last_name, gender: $gender, email: $email, admin: $admin, address1: $address1, address2: $address2, city: $city, state: $state, country: $country, zipcode: $zipcode, phoneNumber: $phone_number}) {
-        user {
-          id
-          firstName
-          middleName
-          lastName
-          gender
-          email
-          admin
-          address1
-          address2
-          city
-          state
-          country
-          zipcode
-          phoneNumber
-        }
-      }
-    }
-  `
-}
-
 export const DELETE_FEATURED_PRODUCT = {
   query: `
     mutation ($id: ID!) {

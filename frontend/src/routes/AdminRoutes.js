@@ -6,7 +6,7 @@ import { useBoundStore } from "../stores/useBoundStore"
 import AdminNav from "../components/Admin/AdminNav/AdminNav"
 import AdminTitleBar from "../components/Admin/AdminTitleBar/AdminTitleBar"
 import UsersPage from "../pages/UsersPage/UsersPage"
-import CreateUpdateUser from "../pages/CreateUpdateUser/CreateUpdateUser"
+import UpdateUser from "../pages/CreateUpdateUser/UpdateUser"
 import TagsPage from "../pages/TagsPage/TagsPage"
 import CreateUpdateTag from "../pages/CreateUpdateTag/CreateUpdateTag"
 import ProductsPage from "../pages/ProductsPage/ProductsPage"
@@ -46,7 +46,7 @@ function AdminRoutes() {
                 path="users/:id"
                 element={
                   <ProtectedRoute isAllowed={!!user && user.admin}>
-                    <CreateUpdateUser />
+                    <UpdateUser />
                   </ProtectedRoute>
                 }
               />

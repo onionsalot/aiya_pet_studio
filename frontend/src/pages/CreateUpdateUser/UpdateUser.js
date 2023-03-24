@@ -1,6 +1,6 @@
 import UserForm from "../../components/UserForm/UserForm"
 
-const CreateUpdateUser = () => {
+const UpdateUser = () => {
     return (
         <div className="bg-white h-full overflow-y-scroll">
             <UserForm />
@@ -8,4 +8,4 @@ const CreateUpdateUser = () => {
     )
 }
 
-export default CreateUpdateUser
+export default UpdateUser

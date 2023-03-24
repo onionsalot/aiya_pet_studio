@@ -8,7 +8,6 @@ import {
   ADD_NEW_FEATURED_PRODUCT,
   UPDATE_FEATURED_PRODUCT,
   UPDATE_USER,
-  ADD_NEW_USER
 } from "../graphql/mutations"
 
 import { gqlHelper } from "../helpers/gql-helper"
@@ -80,16 +79,6 @@ export const useMutate = () => {
         sendError(e.response.data.errors[0].message)
       }
     })
-  
-    const addUser = useMutation((input) => gqlHelper(ADD_NEW_USER, input),
-    {
-      onSuccess: (response) => {
-        checkResponse(response, 'get-all-products')
-      },
-      onError: (e) => {
-        sendError(e.response.data.errors[0].message)
-      }
-    })  
 
   const addFeaturedProduct = useMutation((input) => gqlHelper(ADD_NEW_FEATURED_PRODUCT, input),
     {
@@ -129,7 +118,6 @@ export const useMutate = () => {
     updateTag,
     addFeaturedProduct,
     updateFeaturedProduct,
-    addUser,
     updateUser
   }
 }
