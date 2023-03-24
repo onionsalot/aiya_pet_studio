@@ -9,7 +9,7 @@ module Mutations
     argument :last_name, String, required: true
     argument :gender, String, required: true
     argument :email, String, required: true
-    argument :password, String, required: true
+    argument :admin, Boolean, required: true
     argument :address1, String, required: true
     argument :address2, String, required: true
     argument :city, String, required: true
@@ -21,7 +21,7 @@ module Mutations
 
     field :user, Types::UserType, null: true
 
-    def resolve(first_name: nil, middle_name: nil, last_name: nil, gender: nil, email: nil, password: nil, address1: nil, address2: nil, city: nil, state: nil, country: nil, zipcode: nil, phone_number: nil)
+    def resolve(first_name: nil, middle_name: nil, last_name: nil, gender: nil, email: nil, admin: nil, address1: nil, address2: nil, city: nil, state: nil, country: nil, zipcode: nil, phone_number: nil)
       begin
         raise "Not an Admin" unless context[:current_user].admin?
 
@@ -31,14 +31,14 @@ module Mutations
           last_name: last_name,
           gender: gender,
           email: email,
-          password: password,
+          admin: admin,
           address1: address1,
           address2: address2,
           city: city,
           state: state, 
           country: country,
           zipcode: zipcode,
-          phone_number: phone_number
+          phone_number: phone_number,
         )
 
         { user: user }

@@ -1,7 +1,8 @@
 import { useMutate } from "../../hooks/use-mutate"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { useUser } from "../../hooks/user-hooks"
 import { useParams } from "react-router"
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 const UserForm = () => {
   const formRef = useRef()
@@ -9,14 +10,27 @@ const UserForm = () => {
   const { addUser } = useMutate()
   const { id } = useParams()
   const user = useUser({ "id": id })
+  const isAdmin = user?.data?.data?.data.user.admin
+
+  const fetchedCountry = user?.data?.data?.data?.user.country;
+  const fetchedState = user?.data?.data?.data?.user.state;
+  const [country, setCountry] = useState(fetchedCountry || "");
+  const [region, setRegion] = useState(fetchedState || "");
 
   if (user.isError) return <h1>Something went wrong!</h1>
   if (user.isLoading) return <h1>Loading...</h1>
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    // Add the current country/state values to the form data
+    formRef.current.append("country", country);
+    formRef.current.append("state", region);
+
     const formData = new FormData(formRef.current)
     const data = Object.fromEntries(formData)
+    const adminValue = data.admin === 'true' ? true : false;
+    data.country = country;
+    data.state = region;
     if (!id) {
       const input = {
         first_name: data.firstName,
@@ -24,12 +38,12 @@ const UserForm = () => {
         last_name: data.lastName,
         gender: data.gender,
         email: data.email,
-        admin: data.admin,
+        admin: adminValue,
         address1: data.address1,
         address2: data.address2,
         city: data.city,
-        state: data.state,
-        country: data.country,
+        state: region,
+        country: country,
         zipcode: data.zipcode,
         phone_number: data.phoneNumber
       }
@@ -42,7 +56,7 @@ const UserForm = () => {
         last_name: data.lastName,
         gender: data.gender,
         email: data.email,
-        admin: data.admin,
+        admin: adminValue,
         address1: data.address1,
         address2: data.address2,
         city: data.city,
@@ -110,13 +124,10 @@ const UserForm = () => {
         </label>
         <label className="admin-form-label">
           Admin:
-          <textarea
-            className="admin-form-input"
-            defaultValue={user?.data?.data?.data?.user.admin && user.data.data.data.user.admin}
-            type="text"
-            name="admin"
-            required
-          />
+          <select className="admin-form-input" name="admin" defaultValue={isAdmin.toString()}>
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
         </label>
         <label className="admin-form-label">
           Address1:
@@ -150,21 +161,22 @@ const UserForm = () => {
         </label>
         <label className="admin-form-label">
           State:
-          <textarea
-            className="admin-form-input"
-            defaultValue={user?.data?.data?.data?.user.state && user.data.data.data.user.state}
-            type="text"
+          <RegionDropdown
+            className="form-input"
             name="state"
+            country={country}
+            value={region}
+            onChange={(val) => setRegion(val)}
             required
           />
         </label>
         <label className="admin-form-label">
-          Country:
-          <textarea
+          Country
+          <CountryDropdown
             className="admin-form-input"
-            defaultValue={user?.data?.data?.data?.user.country && user.data.data.data.user.country}
-            type="text"
             name="country"
+            value={country}
+            onChange={setCountry}
             required
           />
         </label>

@@ -17,6 +17,7 @@ import { SkeletonTheme } from 'react-loading-skeleton';
 
 function AdminRoutes() {
   const user = useBoundStore((state) => state.user)
+
   return (
     <SkeletonTheme baseColor="#E9F0F8" highlightColor="#FFFFFF">
         <div className="flex flex-row bg-admin_bg">
