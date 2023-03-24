@@ -7,11 +7,16 @@ import Logout from "../../Auth/Logout"
 import SearchBar from "./SearchBar"
 import CartIcon from "./CartIcon"
 import logo from "../../../images/logo.png"
+import { useWindowSize } from "../../WindowSizeContext/WindowSizeContext"
+import MobileNavbar from "../Navbar/MobileNavbar"
 
 const TitleBanner = () => {
   const user = useBoundStore((state) => state.user)
+  const { width } = useWindowSize()
+  const breakpoint = 640
+
   const userIcon = <FontAwesomeIcon icon={faUser} className="text-2xl" />
-  const dropdownIcon = <FontAwesomeIcon icon={faCaretDown} className="text-base" />
+  const dropdownIcon = <FontAwesomeIcon icon={faCaretDown} />
 
   const authenticatedOptions = (
     <>
@@ -42,23 +47,26 @@ const TitleBanner = () => {
   )
 
   return (
-    <div className="w-full h-20 flex justify-between items-center bg-gradient-to-r from-indigo-400 to-pink-200 px-6">
+    <div className="w-full h-20 flex justify-between items-center bg-gradient-to-r from-indigo-400 to-pink-200 px-2 sm:px-6">
+
       <h1 className="text-white text-3xl">
         <Link to="/">
-          <img src={logo} alt="Logo" className="drop-shadow-md"/>
+          <img src={logo} alt="Logo" className="drop-shadow-md" />
         </Link>
       </h1>
-      <div className="flex text-gray-600">
-        <SearchBar />
+
+      <div className="flex flex-row text-gray-600">
+        {width > breakpoint ? <SearchBar /> : ""}
         <div className="group inline-block relative mx-2 mt-1 ">
-          <button className="hover:text-indigo-400 ease-in duration-150">
+          <button className="hover:text-indigo-400 ease-in duration-150 inline-block">
             <span>{userIcon}{dropdownIcon}</span>
           </button>
-          <ul className="absolute -left-8 hidden group-hover:block drop-shadow-lg">
+          <ul className="absolute -left-8 hidden group-hover:block drop-shadow-lg group-hover:z-20">
             {user ? authenticatedOptions : unauthenticatedOptions}
           </ul>
         </div>
         <CartIcon />
+        {width <= breakpoint ? <MobileNavbar /> : ""}
       </div>
     </div>
   )
