@@ -4,14 +4,15 @@ import AdminRoutes from "../routes/AdminRoutes"
 import UserRoutes from "../routes/UserRoutes"
 import DefaultToaster from '../lib/toaster'
 import { useCurrentUser } from "../hooks/user-hooks"
+import { WindowSizeProvider } from "../components/WindowSizeContext/WindowSizeContext"
 
 function App() {
   const user = useCurrentUser()
 
-  if(user.isLoading) return <span>Loading...</span>
+  if (user.isLoading) return <span>Loading...</span>
 
   return (
-    <>
+    <WindowSizeProvider>
       <Router>
         <Routes>
           <Route
@@ -21,8 +22,8 @@ function App() {
           <Route path="/admin/*" element={<AdminRoutes />} />
         </Routes>
       </Router>
-      <DefaultToaster/>
-    </>
+      <DefaultToaster />
+    </WindowSizeProvider>
   )
 }
 
