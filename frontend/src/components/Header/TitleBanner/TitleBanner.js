@@ -9,11 +9,11 @@ import CartIcon from "./CartIcon"
 import logo from "../../../images/logo.png"
 import { useWindowSize } from "../../WindowSizeContext/WindowSizeContext"
 import MobileNavbar from "../Navbar/MobileNavbar"
+import { breakpoint } from "../../../helpers/helper"
 
 const TitleBanner = () => {
   const user = useBoundStore((state) => state.user)
   const { width } = useWindowSize()
-  const breakpoint = 640
 
   const userIcon = <FontAwesomeIcon icon={faUser} className="text-2xl" />
   const dropdownIcon = <FontAwesomeIcon icon={faCaretDown} />
@@ -47,7 +47,7 @@ const TitleBanner = () => {
   )
 
   return (
-    <div className="w-full h-20 flex justify-between items-center bg-gradient-to-r from-indigo-400 to-pink-200 px-2 sm:px-6">
+    <div className="w-full h-20 flex justify-between items-center bg-gradient-to-r from-indigo-400 to-pink-200 px-4 sm:px-6">
       <h1 className="text-white text-3xl">
         <Link to="/">
           <img src={logo} alt="Logo" className="drop-shadow-md" />
