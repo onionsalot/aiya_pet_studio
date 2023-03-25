@@ -36,7 +36,7 @@ def create_user(**args)
     }
   
     User.create(defaults.merge(args))
-  end
+end
 
 def create_product
     Product.create(
@@ -47,13 +47,13 @@ def create_product
 end
 
  # Generating Admin user
- create_user(
+create_user(
     email: 'admin@admin.com',
     admin: true,
     password: '123123',
     password_confirmation: '123123',
     confirmed_at: Time.now
- )
+)
     
 # Generating Users with no associations
 10.times do
