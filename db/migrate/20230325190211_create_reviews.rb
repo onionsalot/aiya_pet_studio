@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.text :review
       t.string :language
       t.string :image
-      t.references :user, null: false, foreign_key: true
+      t.references :user, null: true, foreign_key: true
       t.references :product, null: false, foreign_key: true
 
       t.timestamps

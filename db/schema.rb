@@ -83,7 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_191157) do
     t.text "review"
     t.string "language"
     t.string "image"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
