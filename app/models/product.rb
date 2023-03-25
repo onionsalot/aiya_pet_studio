@@ -13,4 +13,5 @@
 #
 class Product < ApplicationRecord
     has_paper_trail
+    has_many :reviews, dependent: :destroy
 end

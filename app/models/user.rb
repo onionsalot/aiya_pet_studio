@@ -42,6 +42,7 @@ class User < ApplicationRecord
   enum :gender, [:woman, :man, :transgender, :non_binary, :unknown]
 
   has_one :potential_user
+  has_many :reviews, dependent: :destroy
   
   def full_name
     [first_name, middle_name, last_name].compact.join(' ')
