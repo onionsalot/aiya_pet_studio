@@ -13,6 +13,15 @@ module.exports = {
         admin_sidebar: '#4D79F6',
         admin_main: '#FFFFFF',
         admin_bg: '#E9F0F8'
+      },
+      keyframes: {
+        lengthen: {
+          '0%': { width: '0', opacity: '.3' },
+          '100%': { width: '100%', opacity: '1' },
+        }
+      },
+      animation: {
+        lengthen: 'lengthen 0.8s 1'
       }
     },
   },

@@ -1,6 +1,5 @@
 import React from "react"
 import AuthPage from "../pages/AuthPage/AuthPage"
-import Navbar from "../components/Navbar/Navbar"
 import { Routes, Route } from "react-router-dom"
 import ProtectedRoute from "./ProtectedRoute"
 import ResetPassword from "../components/Auth/ResetPassword"
@@ -15,7 +14,6 @@ function UserRoutes() {
   return (
     <>
       <Header />
-      <Navbar />
       <Routes>
         <Route path="/app" element={<Homepage />} />
         <Route
