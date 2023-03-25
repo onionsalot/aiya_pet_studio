@@ -39,7 +39,7 @@ const MobileNavbar = () => {
       <button className="text-lg mt-1 ml-5 w-5" onClick={handleToggle} >
         {show ? xMark : hamburger}
       </button>
-      <div  className={show ? "flex flex-col items-center text-lg absolute -right-2 top-14 w-screen z-10 rounded-md drop-shadow-lg py-2 bg-violet-50" : "hidden"}>
+      <div className={`flex flex-col items-center text-lg leading-relaxed absolute -right-2 top-12 w-screen rounded-b-md z-10 drop-shadow-lg py-2 bg-violet-50 transition-all opacity-0 -translate-y-2 ${show ? "opacity-100 translate-y-2.5" : ""}`}>
         <div className='mb-2 w-full'>
           <SearchBar />
         </div>

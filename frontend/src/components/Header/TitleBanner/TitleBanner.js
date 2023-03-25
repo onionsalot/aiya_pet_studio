@@ -53,8 +53,7 @@ const TitleBanner = () => {
           <img src={logo} alt="Logo" className="drop-shadow-md" />
         </Link>
       </h1>
-
-      <div className="flex flex-row text-gray-600">
+      <div className="flex flex-row text-gray-700">
         {width > breakpoint ? <SearchBar /> : ""}
         <div className="group inline-block relative mx-2 mt-1 ">
           <button className="hover:text-indigo-400 ease-in duration-150 inline-block">
