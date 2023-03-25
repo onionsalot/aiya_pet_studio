@@ -19,7 +19,7 @@ const MobileNavbar = () => {
   }
 
   useEffect(() => {
-    const triggerClose = e => {
+    const handleOutsideClick = e => {
       if (
         show &&
         ref.current &&
@@ -28,9 +28,9 @@ const MobileNavbar = () => {
         setShow(false)
       }
     }
-    document.addEventListener('mousedown', triggerClose)
+    document.addEventListener('mousedown', handleOutsideClick)
     return () => {
-      document.removeEventListener('mousedown', triggerClose)
+      document.removeEventListener('mousedown', handleOutsideClick)
     }
   }, [show])
 
@@ -39,7 +39,7 @@ const MobileNavbar = () => {
       <button className="text-lg mt-1 ml-5 w-5" onClick={handleToggle} >
         {show ? xMark : hamburger}
       </button>
-      <div className={`flex flex-col items-center text-lg leading-relaxed absolute -right-2 top-12 w-screen z-10 drop-shadow-lg py-2 bg-violet-50 transition-all opacity-0 -translate-y-2 ${show ? "opacity-100 translate-y-2.5" : ""}`}>
+      <div className={`flex flex-col items-center text-lg leading-relaxed absolute -right-4 top-12 w-screen drop-shadow-lg py-2 bg-violet-50 transition-all opacity-0 pointer-events-none -translate-y-2 ${show ? "opacity-100 translate-y-2.5 pointer-events-auto" : ""}`}>
         <div className='mb-2 w-full'>
           <SearchBar />
         </div>
