@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_23_191541) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_25_200401) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_191541) do
     t.string "link_to", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "etsy_etsy_reviews", force: :cascade do |t|
+    t.integer "shop_id"
+    t.integer "listing_id"
+    t.integer "transaction_id"
+    t.integer "buyer_user_id"
+    t.integer "rating"
+    t.string "review", default: ""
+    t.string "language"
+    t.string "image_url_fullxfull"
+    t.integer "created_timestamp"
+    t.integer "updated_timestamp"
+    t.string "buyer_email", default: ""
+    t.bigint "review_id", null: false
+    t.bigint "potential_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["potential_user_id"], name: "index_etsy_etsy_reviews_on_potential_user_id"
+    t.index ["review_id"], name: "index_etsy_etsy_reviews_on_review_id"
   end
 
   create_table "featured_products", force: :cascade do |t|
@@ -43,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_191541) do
     t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.index ["email"], name: "index_potential_users_on_email", unique: true
     t.index ["user_id"], name: "index_potential_users_on_user_id"
   end
@@ -56,6 +76,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_191541) do
     t.datetime "updated_at", null: false
     t.string "etsy_listing_id"
     t.integer "quantity"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "review"
+    t.string "language"
+    t.string "image"
+    t.bigint "user_id"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -109,6 +142,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_191541) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "etsy_etsy_reviews", "potential_users"
+  add_foreign_key "etsy_etsy_reviews", "reviews"
   add_foreign_key "featured_products", "products"
   add_foreign_key "potential_users", "users"
+  add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "users"
 end

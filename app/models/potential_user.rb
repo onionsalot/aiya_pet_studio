@@ -16,8 +16,9 @@
 #  last_name    :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  user_id      :bigint           not null
+#  user_id      :bigint
 #
 class PotentialUser < ApplicationRecord
   belongs_to :user, optional: true
+  has_many :etsy_reviews, class_name: 'Etsy::EtsyReview', dependent: :nullify
 end
