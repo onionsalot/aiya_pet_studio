@@ -26,18 +26,11 @@ const UserForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // Add the current country/state values to the form data
-    formRef.current.append("country", country);
-    formRef.current.append("state", region);
-
     const formData = new FormData(formRef.current)
     const data = Object.fromEntries(formData)
     const adminValue = data.admin === 'true' ? true : false;
     data.country = country;
     data.state = region;
-    if (!id) {
-        console.log('No user found')
-    } else {
       const input = {
         id: id,
         first_name: data.firstName,
@@ -55,7 +48,6 @@ const UserForm = () => {
         phone_number: data.phoneNumber
       }
       updateUser.mutate(input)
-    }
   }
 
   return (

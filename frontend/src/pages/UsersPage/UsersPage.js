@@ -55,7 +55,6 @@ const UsersPage = () => {
   return (
     <div className="bg-white h-full overflow-y-scroll">
       {content}
-      <Table columns={columns} data={users?.data?.data?.data?.users} />
     </div>
   )
 }
