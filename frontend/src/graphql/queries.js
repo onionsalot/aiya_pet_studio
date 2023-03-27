@@ -40,6 +40,29 @@ export const GET_ALL_USERS = {
   `,
 };
 
+export const GET_ONE_USER = {
+  query: `
+    query OneUser($id: ID!) {
+      user(id: $id) {
+        id
+        firstName
+        middleName
+        lastName
+        gender
+        email
+        admin
+        address1
+        address2
+        city
+        state
+        country
+        zipcode
+        phoneNumber
+      }
+    }
+  `,
+};
+
 export const GET_ALL_TAGS = {
   query: `
     query AllTags {

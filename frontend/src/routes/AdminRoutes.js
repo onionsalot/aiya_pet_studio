@@ -6,6 +6,7 @@ import { useBoundStore } from "../stores/useBoundStore"
 import AdminNav from "../components/Admin/AdminNav/AdminNav"
 import AdminTitleBar from "../components/Admin/AdminTitleBar/AdminTitleBar"
 import UsersPage from "../pages/UsersPage/UsersPage"
+import UpdateUser from "../pages/UpdateUser/UpdateUser"
 import TagsPage from "../pages/TagsPage/TagsPage"
 import CreateUpdateTag from "../pages/CreateUpdateTag/CreateUpdateTag"
 import ProductsPage from "../pages/ProductsPage/ProductsPage"
@@ -16,6 +17,7 @@ import { SkeletonTheme } from 'react-loading-skeleton';
 
 function AdminRoutes() {
   const user = useBoundStore((state) => state.user)
+
   return (
     <SkeletonTheme baseColor="#E9F0F8" highlightColor="#FFFFFF">
         <div className="flex flex-row bg-admin_bg">
@@ -44,7 +46,7 @@ function AdminRoutes() {
                 path="users/:id"
                 element={
                   <ProtectedRoute isAllowed={!!user && user.admin}>
-
+                    <UpdateUser />
                   </ProtectedRoute>
                 }
               />
