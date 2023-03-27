@@ -56,7 +56,7 @@ const TitleBanner = () => {
       <div className="flex flex-row text-gray-700">
         {width > breakpoint ? <SearchBar /> : ""}
         <div className="group inline-block relative mx-2 mt-1 ">
-          <button className="hover:text-indigo-400 ease-in duration-150 inline-block">
+          <button className="hover:text-indigo-400/80 ease-in duration-150 inline-block">
             <span>{userIcon}{dropdownIcon}</span>
           </button>
           <ul className="absolute -left-8 hidden group-hover:block drop-shadow-lg group-hover:z-20">
