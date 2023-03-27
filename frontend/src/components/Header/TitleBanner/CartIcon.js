@@ -7,8 +7,8 @@ const CartIcon = () => {
   const bagIcon = <BiShoppingBag style={{ fontSize: '1.95rem' }} />
 
   return (
-    <Link to="/app/cart" className="hover:text-indigo-400/80 ease-in duration-150">
-      <div className={scrollPosition > 110 ? "fixed right-3 top-5 p-3 rounded-full bg-pink-200/90 hover:bg-pink-200 drop-shadow-md transition-all" : ""}>
+    <Link to="/app/cart">
+      <div className={`hover:text-indigo-400/80 transition ${scrollPosition > 110 ? "fixed right-3 top-5 p-3 rounded-full bg-pink-200/90 hover:bg-pink-200 drop-shadow-md transition-all" : ""}`}>
         <div className="relative">
           {bagIcon}
           <span className="absolute -right-3 -top-1">
