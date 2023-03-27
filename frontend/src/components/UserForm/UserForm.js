@@ -3,13 +3,13 @@ import { useRef, useState, useEffect} from "react"
 import { useUser } from "../../hooks/user-hooks"
 import { useParams } from "react-router"
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+import FormSkeleton from "../Admin/Skeletons/FormSkeleton/FormSkeleton"
 
 const UserForm = () => {
   const formRef = useRef()
   const { updateUser } = useMutate()
   const { id } = useParams()
   const { status, data: userData } = useUser({ id })
-
   const user = userData?.data?.data?.user
   const isAdmin = user?.admin
 
@@ -22,9 +22,9 @@ const UserForm = () => {
     if (fetchedCountry) setCountry(fetchedCountry);
     if (fetchedState) setRegion(fetchedState);
   }, [fetchedCountry, fetchedState]);
-
+  
   if (status === "error") return <h1>Something went wrong!</h1>
-  if (status === "loading") return <h1>Loading...</h1>
+  if (status === "loading") return <FormSkeleton count={13}/>
 
   const handleSubmit = async (e) => {
     e.preventDefault()
