@@ -8,5 +8,6 @@ module Types
     field :tag, resolver: Queries::OneTag
     field :featured_products, resolver: Queries::AllFeaturedProducts
     field :featured_product, resolver: Queries::OneFeaturedProduct
+    field :ten_newest_reviews, resolver: Queries::TenNewestReviews
   end
 end

@@ -107,7 +107,7 @@ export const GET_ALL_FEATURED_PRODUCTS = {
 
 export const GET_ONE_FEATURED_PRODUCT = {
   query: `
-    query OneFeaturedProducts($id: ID!) {
+    query OneFeaturedProduct($id: ID!) {
       featuredProduct(id: $id) {
         id,
         productId
@@ -117,3 +117,21 @@ export const GET_ONE_FEATURED_PRODUCT = {
     }
   `,
 };
+
+export const GET_REVIEWS_FOR_HOMEPAGE = {
+  query: `
+    query ReviewsForHomepage {
+      tenNewestReviews {
+        rating
+        review
+        image
+        userId
+        createdAt
+        product {
+          id
+          name
+        }
+      }
+    }
+  `,
+}
