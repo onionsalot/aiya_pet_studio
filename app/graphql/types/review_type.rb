@@ -11,10 +11,15 @@ module Types
     field :product_id, Integer, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :product, Types::ProductType, null: true
+    field :product, Types::ProductType, null: false
+    field :user, Types::UserType, null: false
   end
 
   def product
     object.product
+  end
+
+  def user
+    object.user
   end
 end

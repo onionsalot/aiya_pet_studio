@@ -125,11 +125,14 @@ export const GET_REVIEWS_FOR_HOMEPAGE = {
         rating
         review
         image
-        userId
         createdAt
         product {
           id
           name
+        }
+        user {
+          firstName
+          lastName
         }
       }
     }
