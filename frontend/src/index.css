@@ -37,7 +37,7 @@
   }
 
   .clickable-span {
-    @apply text-indigo-400 px-2 tracking-wide decoration-1 underline underline-offset-2 hover:text-indigo-500 hover:decoration-2 hover:cursor-pointer transition-all
+    @apply text-indigo-400 px-2 tracking-wide hover:text-indigo-300 hover:drop-shadow-sm hover:cursor-pointer transition-all
   }
 
   .active-nav-link {
