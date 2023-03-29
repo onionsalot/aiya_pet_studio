@@ -13,6 +13,7 @@ module Types
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :product, Types::ProductType, null: false
     field :user, Types::UserType, null: false
+    field :reviewer, String
   end
 
   def product
@@ -21,5 +22,9 @@ module Types
 
   def user
     object.user
+  end
+
+  def reviewer
+    object.reviewer
   end
 end
