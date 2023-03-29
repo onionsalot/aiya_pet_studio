@@ -80,7 +80,7 @@ end
 end
 
 # Generating Reviews with Products associated
-5.times do
+10.times do
     product = create_product
     user = create_user
     potential_user = PotentialUser.create(email: user.email)

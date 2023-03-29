@@ -37,7 +37,7 @@
   }
 
   .clickable-span {
-    @apply text-indigo-400 px-1 hover:bg-indigo-50 hover:text-indigo-500 tracking-wide rounded hover:cursor-default
+    @apply text-indigo-400 px-2 tracking-wide decoration-1 underline underline-offset-2 hover:text-indigo-500 hover:decoration-2 hover:cursor-pointer transition-all
   }
 
   .active-nav-link {
@@ -48,4 +48,7 @@
     @apply absolute bottom-0 left-0 w-full h-1 rounded-sm bg-gradient-to-r from-indigo-300 to-pink-300 invisible group-hover:visible group-hover:animate-lengthen
   }
  
+  .section-h1 {
+    @apply text-gray-700 text-3xl text-center pt-6 pb-2 uppercase tracking-wide
+  }
 }
