@@ -22,7 +22,7 @@ const ReviewPanel = () => {
           <ReviewCardSkeleton key={i} />
         ))
 
-    const reviewsArray = reviews?.data?.data?.data?.tenNewestReviews.map(
+    const reviewsArray = reviews?.data?.data?.data?.reviewsForHomepage.map(
       (review, i) => {
         return <ReviewCard review={review} key={i} />
       })

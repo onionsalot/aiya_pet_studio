@@ -121,11 +121,10 @@ export const GET_ONE_FEATURED_PRODUCT = {
 export const GET_REVIEWS_FOR_HOMEPAGE = {
   query: `
     query ReviewsForHomepage {
-      tenNewestReviews {
+      reviewsForHomepage {
         rating
         review
         image
-        createdAt
         reviewer
         product {
           id
