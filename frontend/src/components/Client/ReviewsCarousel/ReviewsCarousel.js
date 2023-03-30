@@ -1,12 +1,13 @@
 import AliceCarousel from 'react-alice-carousel'
 import "react-alice-carousel/lib/alice-carousel.css"
+import { breakpoint } from "../../../helpers/helper"
 
 const ReviewsCarousel = ({ content }) => {
 
   const responsive = {
     0: { items: 1 },
-    640: { items: 2 },
-    1024: { items: 3, itemsFit: 'contain' },
+    [breakpoint.sm]: { items: 2 },
+    [breakpoint.lg]: { items: 3, itemsFit: 'contain' },
   }
 
   return (

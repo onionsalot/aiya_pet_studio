@@ -12,7 +12,7 @@ const Header = () => {
     <>
       <Announcement message={message} />
       <TitleBanner />
-      { width > breakpoint ? <DesktopNavbar /> : "" }
+      { width > breakpoint.sm ? <DesktopNavbar /> : "" }
     </>
   )
 }
