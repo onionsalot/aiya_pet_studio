@@ -18,8 +18,8 @@ class Review < ApplicationRecord
   has_one :etsy_review, class_name: 'Etsy::EtsyReview', dependent: :nullify
 
   def reviewer
-    return "#{user.first_name} #{user.last_name[0]}." if user.present?
-    return etsy_review.buyer_email if etsy_review.present? && etsy_review.buyer_email.present?
+    return user.reviewer_display if user.present?
+    return potential_user.reviewer_display if etsy_review.present? && etsy_review.potential_user.present? 
 
     "Anonymous"
   end
