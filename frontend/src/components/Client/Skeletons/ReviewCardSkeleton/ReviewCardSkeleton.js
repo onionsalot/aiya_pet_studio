@@ -9,19 +9,17 @@ const ReviewCardSkeleton = () => {
           <Skeleton height="100%" baseColor='#ffeaf1' highlightColor='#fff5f7' />
         </div>
         <div className="flex flex-col grow items-center justify-around m-1">
-          <div className="w-36">
-            <Skeleton count={1} baseColor='#ffeaf1' highlightColor='#fff5f7' />
-          </div>
-          <div className='w-36'>
-            <Skeleton count={1} baseColor='#ffeaf1' highlightColor='#fff5f7' />
-          </div>
-          <div className='w-36'>
-            <Skeleton count={1} baseColor='#ffeaf1' highlightColor='#fff5f7' />
-          </div>
+          {Array(3)
+            .fill()
+            .map((_, i) => (
+              <div className='w-36' key={i}>
+                <Skeleton baseColor='#ffeaf1' highlightColor='#fff5f7' />
+              </div>
+            ))}
         </div>
       </div>
       <div className="mt-4">
-        <Skeleton count={4} baseColor='#ffeaf1' highlightColor='#fff5f7' />
+        <Skeleton height={70} baseColor='#ffeaf1' highlightColor='#fff5f7' />
       </div>
     </div>
   )
