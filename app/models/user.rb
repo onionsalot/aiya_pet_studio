@@ -47,4 +47,21 @@ class User < ApplicationRecord
   def full_name
     [first_name, middle_name, last_name].compact.join(' ')
   end
+
+  def reviewer_display
+    return masked_email unless can_display_name?
+
+    "#{first_name} #{last_name[0]}."
+  end
+
+  private
+
+  def masked_email
+    address = Mail::Address.new(email)
+    return "#{address.local[0..1]}*****@#{address.domain}"
+  end 
+
+  def can_display_name?
+    first_name.present? && last_name.present?
+  end
 end

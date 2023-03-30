@@ -64,7 +64,7 @@ const TitleBanner = () => {
           </ul>
         </div>
         <CartIcon />
-        {width <= breakpoint ? <MobileNavbar /> : ""}
+        {width <= breakpoint.sm ? <MobileNavbar /> : ""}
       </div>
     </div>
   )

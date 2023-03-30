@@ -21,4 +21,21 @@
 class PotentialUser < ApplicationRecord
   belongs_to :user, optional: true
   has_many :etsy_reviews, class_name: 'Etsy::EtsyReview', dependent: :nullify
+
+  def reviewer_display
+    return masked_email unless can_display_name?
+
+    "#{first_name} #{last_name[0]}."
+  end
+
+  private
+
+  def masked_email
+    address = Mail::Address.new(email)
+    return "#{address.local[0..1]}*****@#{address.domain}"
+  end 
+
+  def can_display_name?
+    first_name.present? && last_name.present?
+  end
 end
