@@ -134,3 +134,16 @@ export const GET_REVIEWS_FOR_HOMEPAGE = {
     }
   `,
 }
+
+export const GET_POPULAR_PRODUCT = {
+  query: `
+    query PopularProduct {
+      popularProduct {
+        id
+        name
+        price
+        description
+      }
+    }
+  `,
+};

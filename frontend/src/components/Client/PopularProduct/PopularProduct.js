@@ -1,4 +1,7 @@
+import { usePopularProduct } from "../../../hooks/product-hooks"
+
 const PopularProduct = () => {
+    const { data } = usePopularProduct()
     const sampleImage = "https://i.etsystatic.com/24762991/r/il/9f62c0/3430721950/il_794xN.3430721950_4c7c.jpg"
 
     return (
