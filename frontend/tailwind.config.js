@@ -21,7 +21,7 @@ module.exports = {
         }
       },
       animation: {
-        lengthen: 'lengthen 0.8s 1'
+        lengthen: 'lengthen 0.4s 1'
       }
     },
   },
