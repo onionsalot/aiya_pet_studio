@@ -9,5 +9,6 @@ module Types
     field :featured_products, resolver: Queries::AllFeaturedProducts
     field :featured_product, resolver: Queries::OneFeaturedProduct
     field :reviews_for_homepage, resolver: Queries::ReviewsForHomepage
+    field :search_products, resolver: Queries::SearchProducts
   end
 end
