@@ -23,7 +23,7 @@ const ReviewCard = ({ review }) => {
           <div>
             <ReactStars {...ratingProps} />
           </div>
-          <div>
+          <div className="text-sm w-full text-center italic">
             - {review.reviewer}
           </div>
         </div>
