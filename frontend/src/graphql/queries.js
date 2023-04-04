@@ -147,4 +147,22 @@ export const GET_POPULAR_PRODUCT = {
       }
     }
   `,
-};
+}
+
+export const GET_SEARCH_PRODUCTS = {
+  query: `
+    query SearchProducts($searchTerm: String!) {
+      searchProducts(searchTerm: $searchTerm) {
+        id
+        name
+        description
+        price
+        quantity
+        tags {
+          id
+          name
+        }
+      }
+    }
+  `,
+}

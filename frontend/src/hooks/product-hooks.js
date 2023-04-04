@@ -1,5 +1,5 @@
 import { useQuery } from "react-query"
-import { GET_ALL_PRODUCTS, GET_ONE_PRODUCT, GET_POPULAR_PRODUCT } from "../graphql/queries"
+import { GET_ALL_PRODUCTS, GET_ONE_PRODUCT, GET_POPULAR_PRODUCT, GET_SEARCH_PRODUCTS } from "../graphql/queries"
 import { gqlHelper } from "../helpers/gql-helper"
 
 export const useProducts = () => {
@@ -20,6 +20,14 @@ export const useProduct = (input = null) => {
 
 export const usePopularProduct = () => {
   return useQuery("get-popular-product", () => gqlHelper(GET_POPULAR_PRODUCT), {
+    staleTime: 3600000,
+    retry: false,
+    refetchOnWindowFocus: false,
+  })
+}
+
+export const useSearchedProducts = (input = null) => {
+  return useQuery(["get-search-products", input?.searchTerm], () => gqlHelper(GET_SEARCH_PRODUCTS, input), {
     staleTime: 3600000,
     retry: false,
     refetchOnWindowFocus: false,
