@@ -1,8 +1,7 @@
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import TextSection from '../../TextSection/TextSection'
 
-const PopularProductSkeleton = () => {
+const PopularProductCardSkeleton = () => {
     return (
             <div className="mx-auto mb-8 max-w-6xl px-6 md:px-2">
                 <div className="flex flex-col md:flex-row">
@@ -34,4 +33,4 @@ const PopularProductSkeleton = () => {
     )
 }
 
-export default PopularProductSkeleton
+export default PopularProductCardSkeleton

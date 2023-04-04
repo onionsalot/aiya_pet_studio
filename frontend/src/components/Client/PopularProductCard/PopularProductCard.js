@@ -1,6 +1,6 @@
 import { usePopularProduct } from "../../../hooks/product-hooks"
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
-import PopularProductSkeleton from "../Skeletons/PopularProductSkeleton/PopularProductSkeleton"
+import PopularProductCardSkeleton from "../Skeletons/PopularProductCardSkeleton/PopularProductCardSkeleton"
 import TextSection from "../TextSection/TextSection";
 
 const PopularProductCard = () => {
@@ -8,7 +8,7 @@ const PopularProductCard = () => {
     const popularProduct = data?.data?.data.popularProduct
     const sampleImage = "https://i.etsystatic.com/24762991/r/il/9f62c0/3430721950/il_794xN.3430721950_4c7c.jpg"
     if (status === "error") return <h1>Something went wrong!</h1>
-    if (status === "loading") return <PopularProductSkeleton />
+    if (status === "loading") return <PopularProductCardSkeleton />
     
     return (
         <div>
