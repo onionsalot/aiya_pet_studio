@@ -12,10 +12,12 @@ const ReviewCard = ({ review }) => {
     isHalf: false,
   }
 
+  const handleDragStart = e => e.preventDefault()
+
   return (
-    <div className="h-60 rounded-md mx-2 p-2 bg-white select-none border-2 border-gray-300 text-gray-700">
+    <div className="h-60 rounded-md mx-2 p-2 bg-white select-none border-2 border-gray-300 text-gray-700" onDragStart={handleDragStart}>
       <div className="flex flex-row">
-        <img src={sampleImage} className="object-cover w-44 h-32 rounded-md" draggable="false" alt="Review product image"/>
+        <img src={sampleImage} className="object-cover w-44 h-32 rounded-md" alt="Review product image"/>
         <div className="flex flex-col grow items-center justify-around m-1">
           <div className="text-center clickable-span">
             <Link to="">{review.product.name}</Link>
