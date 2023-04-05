@@ -39,7 +39,7 @@ const MobileNavbar = () => {
       <button className="text-lg mt-1 ml-5 w-5 hover:text-indigo-400/80 ease-in duration-150" onClick={handleToggle} >
         {show ? xMark : hamburger}
       </button>
-      <div className={`flex flex-col items-center text-lg leading-relaxed absolute -right-4 top-12 w-screen drop-shadow-lg py-2 bg-violet-50 transition-all opacity-0 pointer-events-none -translate-y-2 ${show ? "opacity-100 translate-y-2.5 pointer-events-auto" : ""}`}>
+      <div className={`flex flex-col items-center text-lg leading-relaxed z-10 absolute -right-4 top-12 w-screen drop-shadow-lg py-2 bg-violet-50 transition-all opacity-0 pointer-events-none -translate-y-2 ${show ? "opacity-100 translate-y-2.5 pointer-events-auto" : ""}`}>
         <div className='mb-2 w-full'>
           <SearchBar />
         </div>

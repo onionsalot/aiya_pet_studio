@@ -1,0 +1,8 @@
+.alice-carousel__dots {
+  margin-top: 5px;
+}
+
+.alice-carousel__next-btn, .alice-carousel__prev-btn {
+  margin-top: -10px;
+  padding: 0 10px;
+}

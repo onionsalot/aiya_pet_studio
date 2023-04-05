@@ -8,7 +8,7 @@ const CartIcon = () => {
 
   return (
     <Link to="/app/cart">
-      <div className={`hover:text-indigo-400/80 transition ${scrollPosition > 110 ? "fixed right-3 top-5 p-3 rounded-full bg-pink-200/90 hover:bg-pink-200 drop-shadow-md transition-all" : ""}`}>
+      <div className={`hover:text-indigo-400/80 z-10 transition ${scrollPosition > 110 ? "fixed right-3 top-5 p-3 rounded-full bg-pink-200/90 hover:bg-pink-200 drop-shadow-md transition-all" : ""}`}>
         <div className="relative">
           {bagIcon}
           <span className="absolute -right-3 -top-1">
