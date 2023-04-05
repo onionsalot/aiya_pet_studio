@@ -14,4 +14,6 @@
 class Product < ApplicationRecord
     has_paper_trail
     has_many :reviews, dependent: :destroy
-end
+    has_many :product_tags, dependent: :destroy
+    has_many :tags, through: :product_tags
+  end
