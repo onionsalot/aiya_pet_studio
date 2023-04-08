@@ -4,10 +4,9 @@ const SearchSection = ({ foundProducts = [] }) => {
   const display = foundProducts.map((product, i) => {
     return <ProductCard product={product} key={i} />
   })
-  console.log(foundProducts)
 
   return (
-    <div>
+    <div className="align-center-max">
       {display}
     </div>
   );
