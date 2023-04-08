@@ -12,6 +12,7 @@ const SearchBar = () => {
     const formData = new FormData(formRef.current)
     const data = Object.fromEntries(formData)
     navigate(`/app/search?query=${encodeURIComponent(data.searchTerm)}`)
+    e.target.reset()
   }
 
   return (
