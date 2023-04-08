@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom"
-import { useSearchedProducts } from "../../../hooks/product-hooks"
+import { useSearchProducts } from "../../../hooks/product-hooks"
 import SearchSection from "../../../components/Client/SearchSection/SearchSection"
 import Dropdown from "../../../components/Client/Dropdown/Dropdown"
 import { useState, useEffect } from "react"
@@ -8,7 +8,7 @@ const SearchPage = () => {
   const searchParams = new URLSearchParams(useLocation().search)
   const searchTerm = searchParams.get("query")
   const sortQuery = searchParams.get("sort") || "relevant"
-  const { status, data: productData } = useSearchedProducts({ searchTerm })
+  const { status, data: productData } = useSearchProducts({ searchTerm })
   const foundProducts = productData?.data?.data?.searchProducts
   const [sortBy, setSortBy] = useState(sortQuery)
   const navigate = useNavigate()

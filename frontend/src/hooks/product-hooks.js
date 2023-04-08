@@ -26,7 +26,7 @@ export const usePopularProduct = () => {
   })
 }
 
-export const useSearchedProducts = (input = null) => {
+export const useSearchProducts = (input = null) => {
   return useQuery(["get-search-products", input?.searchTerm], () => gqlHelper(GET_SEARCH_PRODUCTS, input), {
     staleTime: 3600000,
     retry: false,
