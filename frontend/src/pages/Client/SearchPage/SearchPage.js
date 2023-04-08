@@ -18,7 +18,6 @@ const SearchPage = () => {
   }, [sortQuery])
 
   if (status === "error") return <h1>Something went wrong!</h1>
-  if (status === "loading") return <h1>loading</h1>
 
   const sortOptions = [
     {
@@ -44,7 +43,6 @@ const SearchPage = () => {
   ]
 
   const handleOptions = (e) => {
-    console.log(e.target.value)
     setSortBy(e.target.value)
 
     const updatedSearchParams = new URLSearchParams(searchParams);
