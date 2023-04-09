@@ -1,10 +1,11 @@
 import ProductCard from "../ProductCard/ProductCard";
-import ProductCardSkeleton from "../Skeletons/ProductCardSkeleton/ProductCardSkeleton";
 
 const SearchSection = ({ foundProducts = [] }) => {
   const display = 
     foundProducts.length === 0 ?
-      <span className="text-2xl">No products found</span>
+     <div className="flex flex-col items-center justify-center w-full h-full">
+        <h1 className="text-2xl text-center">Your search term(s) did not return any matching products</h1>
+      </div>
     :
     foundProducts.map((product, i) => {
       return <ProductCard product={product} key={i} />
