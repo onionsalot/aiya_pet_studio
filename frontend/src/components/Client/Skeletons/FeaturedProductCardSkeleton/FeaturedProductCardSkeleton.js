@@ -12,11 +12,11 @@ const FeaturedProductCardSkeleton = () => {
           transition
           duration-300"
       >
-        <Skeleton height="100%"/>
+        <Skeleton height="100%" />
       </div>
       <div className="pt-3 text-left">
-        <Skeleton height="50%"/>
-        <Skeleton height="50%"/>
+        <Skeleton height="50%" />
+        <Skeleton height="50%" width="30%" />
       </div>
     </div>
   );
