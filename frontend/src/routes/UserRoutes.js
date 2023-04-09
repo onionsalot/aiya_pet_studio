@@ -8,42 +8,45 @@ import { useBoundStore } from "../stores/useBoundStore"
 
 import Header from "../components/Header/Header"
 import Homepage from "../pages/Client/Homepage/Homepage"
+import { SkeletonTheme } from 'react-loading-skeleton'
 
 function UserRoutes() {
   const user = useBoundStore((state) => state.user)
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/app" element={<Homepage />} />
-        <Route
-          path="/app/login"
-          element={
-            <ProtectedRoute isAllowed={!user}>
-              <AuthPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/app/reset"
-          element={
-            <ProtectedRoute isAllowed={!user}>
-              <ResetPassword />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/app/confirmation"
-          element={
-            <ProtectedRoute isAllowed={!user}>
-              <Confirmation />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/app/cart"
-        />
-      </Routes>
+      <SkeletonTheme baseColor='#ffeaf1' highlightColor='#fff5f7'>
+        <Header />
+        <Routes>
+          <Route path="/app" element={<Homepage />} />
+          <Route
+            path="/app/login"
+            element={
+              <ProtectedRoute isAllowed={!user}>
+                <AuthPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/app/reset"
+            element={
+              <ProtectedRoute isAllowed={!user}>
+                <ResetPassword />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/app/confirmation"
+            element={
+              <ProtectedRoute isAllowed={!user}>
+                <Confirmation />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/app/cart"
+          />
+        </Routes>
+      </SkeletonTheme>
     </>
   )
 }
