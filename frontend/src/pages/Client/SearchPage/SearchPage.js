@@ -2,7 +2,8 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { useSearchProducts } from "../../../hooks/product-hooks"
 import SearchSection from "../../../components/Client/SearchSection/SearchSection"
 import Dropdown from "../../../components/Client/Dropdown/Dropdown"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
+import ProductCardSkeleton from "../../../components/Client/Skeletons/ProductCardSkeleton/ProductCardSkeleton"
 
 const SearchPage = () => {
   const searchParams = new URLSearchParams(useLocation().search)
@@ -17,7 +18,20 @@ const SearchPage = () => {
     setSortBy(sortQuery)
   }, [sortQuery])
 
-  if (status === "error") return <h1>Something went wrong!</h1>
+  const content = useMemo(
+    () => {
+      if (status === "error") return <h1>Something went wrong!</h1>
+      if (status === "loading") {
+        return Array(16)
+        .fill()
+        .map((_, i) => (
+          <ProductCardSkeleton key={i} />
+          )
+        )
+      }
+      return <SearchSection foundProducts={foundProducts} />
+    }, [foundProducts]
+  )
 
   const sortOptions = [
     {
@@ -50,6 +64,8 @@ const SearchPage = () => {
     navigate(`/app/search?${updatedSearchParams.toString()}`, { replace: true });
   }
 
+  if (status === "error") return <h1>Something went wrong!</h1>
+
   return (
     <div className="flex flex-col">
       <div className="align-center-max">
@@ -57,7 +73,9 @@ const SearchPage = () => {
           <Dropdown prefix={"Sort"} sortOptions={sortOptions} handleOptions={handleOptions} defaultValue={sortQuery} />
         </div>
       </div>
-      <SearchSection foundProducts={foundProducts} />
+      <div className="align-center-max">
+        {content}
+      </div>
     </div>
   )
 }
