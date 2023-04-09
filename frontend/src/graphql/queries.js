@@ -99,6 +99,7 @@ export const GET_ALL_FEATURED_PRODUCTS = {
           id
           name
           description
+          price
         }
       }
     }
