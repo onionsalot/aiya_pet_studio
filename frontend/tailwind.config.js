@@ -12,7 +12,9 @@ module.exports = {
         admin_link2: '#8FAFFF',
         admin_sidebar: '#4D79F6',
         admin_main: '#FFFFFF',
-        admin_bg: '#E9F0F8'
+        admin_bg: '#E9F0F8',
+        client_primary: '#585858',
+        client_secondary: '#3D3D3D'
       },
       keyframes: {
         lengthen: {
