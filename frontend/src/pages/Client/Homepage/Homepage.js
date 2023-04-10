@@ -1,6 +1,7 @@
 import FeaturedPanel from "../../../components/Client/FeaturedPanel/FeaturedPanel"
 import ImagesCarousel from "../../../components/Client/ImagesCarousel/ImagesCarousel"
 import ReviewPanel from "../../../components/Client/ReviewPanel/ReviewPanel"
+import FooterSection from "../../../components/Footer/FootSection"
 import PopularProductCard from "../../../components/Client/PopularProductCard/PopularProductCard"
 
 const Homepage = () => {
@@ -13,6 +14,7 @@ const Homepage = () => {
       <PopularProductCard />
       <h1 className="section-h1">Our Reviews</h1>
       <ReviewPanel />
+      <FooterSection />
     </div>
   )
 }
