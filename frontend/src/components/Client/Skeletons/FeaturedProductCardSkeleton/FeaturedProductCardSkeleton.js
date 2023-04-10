@@ -3,19 +3,20 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const FeaturedProductCardSkeleton = () => {
   return (
-    <div className="w-1/2 sm:w-1/4 aspect-square">
+    <div className="flex flex-col p-3 mx-7 w-full sm:w-1/2 sm:mx-0 md:w-1/4 md:p-1 lg:p-3">
       <div
         className="
-          m-2
-          h-5/6
+          aspect-square
+          w-full
           rounded-md
-          hover:shadow-lg
-          cursor-pointer
-          lg:m-4
           transition
           duration-300"
       >
-        <Skeleton height="100%" baseColor='#ffeaf1' highlightColor='#fff5f7'/>
+        <Skeleton height="100%" />
+      </div>
+      <div className="pt-3 text-left">
+        <Skeleton height="50%" />
+        <Skeleton height="50%" width="30%" />
       </div>
     </div>
   );
