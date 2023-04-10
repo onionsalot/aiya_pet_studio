@@ -1,8 +1,7 @@
-import LinkWrapper from "./LinkWrapper"
+import LinkWrapper from '../Client/LinkWrapper/LinkWrapper'
 import Instagram from "../Client/Social/Instagram"
 
-const FooterSection = () => {
-
+const Footer = () => {
   return (
     <div className="flex flex-col bg-indigo-400 text-white mt-4">
       <div className="mx-auto w-full max-w-6xl">
@@ -21,8 +20,8 @@ const FooterSection = () => {
               <LinkWrapper to="#" title="Returns" />
             </div>
           </div>
-            <div className="flex flex-col items-center">
-              <Instagram />
+          <div className="flex flex-col items-center">
+            <Instagram />
             <img src="https://i.etsystatic.com/24762991/r/il/9f62c0/3430721950/il_794xN.3430721950_4c7c.jpg"
             className="w-80 h-48 object-cover mx-auto rounded-md" />
           </div>
@@ -33,4 +32,4 @@ const FooterSection = () => {
   )
 }
 
-export default FooterSection
+export default Footer

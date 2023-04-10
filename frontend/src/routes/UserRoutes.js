@@ -9,6 +9,7 @@ import { useBoundStore } from "../stores/useBoundStore"
 import Header from "../components/Header/Header"
 import Homepage from "../pages/Client/Homepage/Homepage"
 import { SkeletonTheme } from 'react-loading-skeleton'
+import Footer from "../components/Footer/Footer"
 
 function UserRoutes() {
   const user = useBoundStore((state) => state.user)
@@ -46,6 +47,7 @@ function UserRoutes() {
             path="/app/cart"
           />
         </Routes>
+        <Footer />
       </SkeletonTheme>
     </>
   )
