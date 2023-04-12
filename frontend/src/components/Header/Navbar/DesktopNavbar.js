@@ -2,7 +2,7 @@ import NavbarLink from "./NavbarLink"
 
 const DesktopNavbar = () => {
   return (
-    <nav className="max-w-4xl mx-auto">
+    <nav className="w-full max-w-4xl mx-auto">
       <div className="w-full tracking-wide md:text-lg text-gray-700">
         <div className="h-20 flex items-center flex-row justify-around">
           <NavbarLink to="/app" title="Home" />

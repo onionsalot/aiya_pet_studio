@@ -3,7 +3,7 @@ import Instagram from "../Client/Social/Instagram"
 
 const Footer = () => {
   return (
-    <div className="flex flex-col bg-indigo-400 text-white mt-4">
+    <div className="flex flex-col mt-auto bg-indigo-400 text-white">
       <div className="mx-auto w-full max-w-6xl">
         <div className="flex flex-col md:flex-row md:justify-between md:mr-16">
           <div className="flex justify-around pt-4 md:w-96 md:items-center">
