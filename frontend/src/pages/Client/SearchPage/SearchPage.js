@@ -20,7 +20,6 @@ const SearchPage = () => {
 
   const content = useMemo(
     () => {
-      console.log(error)
       if (status === 'error') return <h1>{error.message || "Something went wrong!"}</h1>
       if (status === 'loading') {
         return Array(16)
