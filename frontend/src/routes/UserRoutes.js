@@ -46,6 +46,12 @@ function UserRoutes() {
           <Route
             path="/app/cart"
           />
+          <Route
+            path="/app/search"
+            element={
+              <SearchPage />
+            }
+          />
         </Routes>
         <Footer />
       </SkeletonTheme>
