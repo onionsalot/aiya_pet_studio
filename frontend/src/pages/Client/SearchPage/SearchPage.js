@@ -9,7 +9,7 @@ const SearchPage = () => {
   const searchParams = new URLSearchParams(useLocation().search)
   const searchTerm = searchParams.get("query")
   const sortQuery = searchParams.get("sort") || "relevant"
-  const { status, data: productData } = useSearchProducts({ searchTerm })
+  const { status, data: productData, error } = useSearchProducts({ searchTerm })
   const foundProducts = productData?.data?.data?.searchProducts
   const [sortBy, setSortBy] = useState(sortQuery)
   const navigate = useNavigate()
@@ -20,7 +20,8 @@ const SearchPage = () => {
 
   const content = useMemo(
     () => {
-      if (status === 'error') return <h1>Something went wrong!</h1>
+      console.log(error)
+      if (status === 'error') return <h1>{error.message || "Something went wrong!"}</h1>
       if (status === 'loading') {
         return Array(16)
         .fill()
