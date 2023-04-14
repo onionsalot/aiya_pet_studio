@@ -20,8 +20,8 @@ const SearchPage = () => {
 
   const content = useMemo(
     () => {
-      if (status === "error") return <h1>Something went wrong!</h1>
-      if (status === "loading") {
+      if (status === 'error') return <h1>Something went wrong!</h1>
+      if (status === 'loading') {
         return Array(16)
         .fill()
         .map((_, i) => (
@@ -30,7 +30,7 @@ const SearchPage = () => {
         )
       }
       return <SearchSection foundProducts={foundProducts} />
-    }, [foundProducts]
+    }, [status]
   )
 
   const sortOptions = [
@@ -63,8 +63,6 @@ const SearchPage = () => {
     updatedSearchParams.set("sort", e.target.value);
     navigate(`/app/search?${updatedSearchParams.toString()}`, { replace: true });
   }
-
-  if (status === "error") return <h1>Something went wrong!</h1>
 
   return (
     <div className="flex flex-col">
