@@ -17,7 +17,7 @@ const SearchBar = () => {
 
   return (
     <form ref={formRef} onSubmit={handleSearch} className="flex justify-between border-2 rounded-md border-gray-600 mx-2 px-1 hover:text-indigo-400/80 hover:border-indigo-400/80 ease-in duration-150">
-      <input type="text" name="searchTerm" className="bg-transparent focus:outline-none w-full"></input>
+      <input type="text" name="searchTerm" className="bg-transparent focus:outline-none w-full" required></input>
       <button type="submit">{searchIcon}</button>
     </form>
   )
