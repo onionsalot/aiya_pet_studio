@@ -2,5 +2,9 @@
   "name": "aiya-pet-studio",
   "scripts": {
     "heroku-postbuild": "cd frontend && yarn install && yarn build"
+  },
+  "engines": {
+    "node": "18.9.0",
+    "yarn": "1.22.19"
   }
 }
