@@ -20,6 +20,6 @@ module AuthenticationApp
     # config.eager_load_paths << Rails.root.join("extras")
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
-    config.middleware.use Rack::Static, urls: ['/static'], root: 'frontend/build'
+    config.middleware.use Rack::Static, urls: ['/'], root: 'frontend/build', index: 'index.html'
   end
 end
