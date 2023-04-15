@@ -1,7 +1,7 @@
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-const ProductCardSkeleton = () => {
+const FeaturedProductCardSkeleton = () => {
   return (
     <div className="flex flex-col p-3 mx-7 w-full sm:w-1/2 sm:mx-0 md:w-1/4 md:p-1 lg:p-3">
       <div
@@ -22,4 +22,4 @@ const ProductCardSkeleton = () => {
   );
 }
  
-export default ProductCardSkeleton;
+export default FeaturedProductCardSkeleton;

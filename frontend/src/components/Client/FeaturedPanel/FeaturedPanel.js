@@ -1,5 +1,5 @@
-import ProductCard from "../ProductCard/ProductCard";
-import ProductCardSkeleton from "../Skeletons/ProductCardSkeleton/ProductCardSkeleton";
+import FeaturedProductCard from "../FeaturedProductCard/FeaturedProductCard";
+import FeaturedProductCardSkeleton from "../Skeletons/FeaturedProductCardSkeleton/FeaturedProductCardSkeleton";
 import { useFeaturedProducts } from "../../../hooks/featured-product-hooks";
 import { useMemo } from "react";
 
@@ -12,10 +12,10 @@ const FeaturedPanel = () => {
       return Array(4)
         .fill()
         .map((_, i) => (
-          <ProductCardSkeleton key={i} />
+          <FeaturedProductCardSkeleton key={i} />
         ));
     return featuredProducts?.data?.data?.data?.featuredProducts.map(
-      (featuredProduct, i) => <ProductCard product={featuredProduct.product} key={i} />
+      (featuredProduct, i) => <FeaturedProductCard product={featuredProduct.product} key={i} />
     );
   }, [featuredProducts]);
 

@@ -1,4 +1,4 @@
-const ProductCard = ({ product }) => {
+const FeaturedProductCard = ({ product }) => {
   const SAMPLEIMAGE = 'https://i.etsystatic.com/24762991/r/il/6f40cb/2951681622/il_794xN.2951681622_obfu.jpg'
   const handleMouseOver = (e) => {
     const insideCard = e.currentTarget.querySelector('.image-card');
@@ -40,4 +40,4 @@ const ProductCard = ({ product }) => {
   );
 }
  
-export default ProductCard;
+export default FeaturedProductCard;
