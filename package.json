@@ -1,0 +1,6 @@
+{
+  "name": "aiya-pet-studio",
+  "scripts": {
+    "heroku-postbuild": "cd frontend && yarn install && yarn build"
+  }
+}
