@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get '*path', to: 'frontend#index', constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
+
   namespace :auth do
     get 'current_user/index'
     devise_scope :user do
@@ -13,12 +17,8 @@ Rails.application.routes.draw do
     sessions: 'auth/sessions'
   }
 
-
-  get '/index', to: 'home#index'
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end
   post "/graphql", to: "graphql#execute"
-
-  root to: redirect('/static')
 end

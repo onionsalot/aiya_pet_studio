@@ -84,3 +84,4 @@ production:
   database: aiya_pet_studio_production
   username: aiya_pet_studio
   password: <%= ENV["AIYA_PET_STUDIO_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
