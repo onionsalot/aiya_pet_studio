@@ -90,5 +90,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.frontend_base_url = 'http://google.com'
+
+  # TODO - change this to production domain
+  config.action_mailer.default_url_options = { host: 'your-production-domain.com' }
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.sendgrid.net",
+    :port => 587,
+    :domain => 'your-production-domain.com',
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+  config.action_controller.forgery_protection_origin_check = true
+  config.frontend_base_url = 'https://aiyapetstudio.netlify.app/'
 end
