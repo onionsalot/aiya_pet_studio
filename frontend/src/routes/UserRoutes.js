@@ -1,6 +1,6 @@
 import React from "react"
 import AuthPage from "../pages/AuthPage/AuthPage"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import ProtectedRoute from "./ProtectedRoute"
 import ResetPassword from "../components/Auth/ResetPassword"
 import Confirmation from "../components/Auth/Confirmation"
@@ -18,7 +18,8 @@ function UserRoutes() {
       <SkeletonTheme baseColor='#ffeaf1' highlightColor='#fff5f7'>
         <Header />
         <Routes>
-          <Route path="/app" element={<Homepage />} />
+          <Route path="/" element={<Navigate to="/app" />} />
+          <Route path="/app" element={<Homepage />} index />
           <Route
             path="/app/login"
             element={
