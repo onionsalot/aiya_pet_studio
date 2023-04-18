@@ -20,5 +20,6 @@ module AuthenticationApp
     # config.eager_load_paths << Rails.root.join("extras")
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
+    config.session_store :cookie_store, key: '_aiya_pet_studio_session', same_site: :none, secure: true
   end
 end
