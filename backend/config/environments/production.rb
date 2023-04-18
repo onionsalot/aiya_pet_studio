@@ -92,13 +92,13 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # TODO - change this to production domain
-  config.action_mailer.default_url_options = { host: 'your-production-domain.com' }
+  config.action_mailer.default_url_options = { host: 'https://aiya-pet-studio.herokuapp.com/' }
   config.action_mailer.smtp_settings = {
     :address => "smtp.sendgrid.net",
     :port => 587,
-    :domain => 'your-production-domain.com',
-    :user_name => ENV['SENDGRID_USERNAME'],
-    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => 'https://aiya-pet-studio.herokuapp.com/',
+    :user_name => 'apikey',
+    :password => ENV['SENDGRID_API_KEY'],
     :authentication => :plain,
     :enable_starttls_auto => true
   }
