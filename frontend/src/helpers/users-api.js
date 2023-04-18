@@ -1,6 +1,6 @@
 import axios from "../lib/axios"
 
-const BASE_URL = process.env.REACT_APP_API_URL + "/auth/"
+const BASE_URL = process.env.REACT_APP_API_URL + "auth/"
 
 export function getCurrentUser() {
   if (localStorage.getItem('isLoggedIn') !== 'true') return null
