@@ -8,6 +8,7 @@
 require "faker"
 
 puts "Seeding..."
+# TODO - DISABLE IN PRODUCTION
 
 # If you want to remove previous records before running this seed file, use <Class>.destroy_all for each of the classes to be destroyed.
 # Note ID numbers will not be overwritten unless you reset the database and set it up again.
