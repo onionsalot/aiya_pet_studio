@@ -99,8 +99,9 @@ yarn install
 ```
 
 # Starting the server
-Backend server (In Base directory)
+Backend server (In backend directory)
 ```shell
+cd backend
 rails s
 # served at localhost:3000
 ```
@@ -110,6 +111,14 @@ cd frontend
 npm start
 # served at localhost:3001
 ```
+
+-OR-
+From the root directory
+```shell
+npm start
+# this starts both servers at the same time
+```
+
 If all looks good and the Dashboard is showing products, navigate to the Auth page and register and account.
 
 To login, you will need to confirm your account. Emails are locally served via `mailcatcher`. Information on handling emails can be found by clicking on the following section => [Handling emails](#handling-emails)
