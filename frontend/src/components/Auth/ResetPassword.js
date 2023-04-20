@@ -13,7 +13,6 @@ const ResetPassword = () => {
 
   useEffect(() => {
     checkResetTokenMutation.mutate({ reset_password_token: token })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleSubmit = async (e) => {
@@ -56,7 +55,7 @@ const ResetPassword = () => {
         ?
         <div className="mt-10">
           <h1 className="text-center text-2xl mb-3"> Reset Your Password </h1>
-          <div className="flex justify-center px-5">
+          <div className="flex flex-col justify-center items-center px-5">
             <form ref={formRef} onSubmit={handleSubmit} className="w-full max-w-2xl">
               <label className="form-label">
                 Password:
@@ -68,9 +67,11 @@ const ResetPassword = () => {
               </label>
               <input className="form-submit mt-5" type="submit" value="Reset Password" />
             </form>
+            <div className="text-cyan-500">
+              {errors}
+              {resetPasswordMutation.isError ? resetPasswordMutation.error : ""}
+            </div>
           </div>
-          {errors}
-          {resetPasswordMutation.isError ? resetPasswordMutation.error : ""}
         </div>
         :
         <div>

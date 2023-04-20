@@ -41,7 +41,7 @@ const Registration = () => {
   return (
     <div>
       <h1 className="text-center text-2xl mb-5"> Register an Account</h1>
-      <div className="flex justify-center px-5">
+      <div className="flex flex-col justify-center items-center px-5">
         <form
           ref={formRef}
           onSubmit={handleSubmit}
@@ -230,12 +230,14 @@ const Registration = () => {
           </label>
           <input className="form-submit mt-3" type="submit" value="Submit" />
         </form>
-        {signupUserMutation.isSuccess
-          ? "Successfully Signed up! Please check and confirm your email to log in."
-          : ""}
-        {signupUserMutation.isError
-          ? signupUserMutation.error.response?.data?.message
-          : ""}
+        <div className="text-cyan-500">
+          {signupUserMutation.isSuccess
+            ? "Successfully Signed up! Please check and confirm your email to log in."
+            : ""}
+          {signupUserMutation.isError
+            ? signupUserMutation.error.response?.data?.message
+            : ""}
+        </div>
       </div>
     </div>
   );
