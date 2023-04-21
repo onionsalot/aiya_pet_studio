@@ -47,7 +47,7 @@ const Login = () => {
         ?
         <>
           <h1 className="text-center text-2xl mb-3">Forgot Password</h1>
-          <div className="flex justify-center px-5">
+          <div className="flex flex-col justify-center items-center px-5">
             <form ref={formRef} onSubmit={handlePasswordReset} className="w-full max-w-2xl">
               <p className="text-center my-3 text-gray-600 ">Please enter your email address and we'll send you a link to reset your password:</p>
               <label className="form-label">
@@ -55,14 +55,17 @@ const Login = () => {
                 <input className="form-input" type="email" name="email" placeholder="Email" required />
               </label>
               <input className="form-submit mt-5" type="submit" value="Submit" />
+
             </form>
+            <div className="text-cyan-500">
+              {requestPasswordResetMutation.isError ? requestPasswordResetMutation.error.response.data.message : ""}
+            </div>
           </div>
-          {requestPasswordResetMutation.isError ? requestPasswordResetMutation.error.response.data.message : ""}
           <p className="text-center"><span className="clickable-span" onClick={() => setShowReset(!showReset)}>Return to Login</span></p>
         </>
         :
         <>
-          <div className="flex justify-center px-5">
+          <div className="flex flex-col justify-center items-center px-5">
             <form ref={formRef} onSubmit={handleSubmit} className="w-full max-w-2xl">
               <label className="form-label">
                 Email
@@ -78,11 +81,13 @@ const Login = () => {
               </label>
               <input className="form-submit mt-5" type="submit" value="Login" />
             </form>
+            <div className="text-cyan-500">
+              {signinUserMutation.isError ? signinUserMutation.error.response?.data : ""}
+            </div>
           </div>
           <p className="text-center">Forgot password? <span className="clickable-span" onClick={() => setShowReset(!showReset)}>Reset here</span></p>
         </>
       }
-      {signinUserMutation.isError ? signinUserMutation.error.response?.data : ""}
     </div>
   )
 }
