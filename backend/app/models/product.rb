@@ -12,8 +12,15 @@
 #  quantity        :integer
 #
 class Product < ApplicationRecord
-    has_paper_trail
-    has_many :reviews, dependent: :destroy
-    has_many :product_tags, dependent: :destroy
-    has_many :tags, through: :product_tags
-  end
+  include PgSearch::Model
+
+  has_paper_trail
+  has_many :reviews, dependent: :destroy
+  has_many :product_tags, dependent: :destroy
+  has_many :tags, through: :product_tags
+
+  multisearchable against: [:name, :description],
+                  using: {
+                    tsearch: { prefix: true, any_word: true }
+                  }
+end
