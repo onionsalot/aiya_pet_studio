@@ -15,7 +15,7 @@ export const usePopularProduct = () => {
 
 export const useSearchProducts = (input = null) => {
   return useGqlQuery(
-    ["get-search-products", input?.searchTerm],
+    ["get-search-products", input?.searchTerm, input?.sortBy],
     GET_SEARCH_PRODUCTS,
     input
   )

@@ -10,20 +10,15 @@ const SearchPage = () => {
   const searchParams = new URLSearchParams(useLocation().search)
   const searchTerm = searchParams.get("query")
   const sortQuery = searchParams.get("sort") || "relevant"
-  const { status, data: productData, error } = useSearchProducts({ searchTerm })
+  const { status, data: productData, error } = useSearchProducts({ searchTerm, sortBy: sortQuery })
   const foundProducts = productData?.data?.data?.searchProducts
-  const [sortBy, setSortBy] = useState(sortQuery)
   const navigate = useNavigate()
-
-  useEffect(() => {
-    setSortBy(sortQuery)
-  }, [sortQuery])
 
   const content = useMemo(
     () => {
       if (status === 'error') return <h1>{error.message || "Something went wrong!"}</h1>
       if (status === 'loading') {
-        return Array(16)
+        return Array(4)
           .fill()
           .map((_, i) => (
             <ProductCardSkeleton key={i} />
@@ -31,7 +26,7 @@ const SearchPage = () => {
           )
       }
       return <SearchSection foundProducts={foundProducts} />
-    }, [status]
+    }, [status, foundProducts]
   )
 
   const sortOptions = [
@@ -53,15 +48,18 @@ const SearchPage = () => {
     },
     {
       value: "mostRecent",
-      label: 'Most Recent'
+      display: 'Most Recent'
+    },
+    {
+      value: "name",
+      display: 'Name'
     }
   ]
 
   const handleOptions = (e) => {
-    setSortBy(e.value)
-    const updatedSearchParams = new URLSearchParams(searchParams)
-    updatedSearchParams.set("sort", e.value)
-    navigate(`/app/search?${updatedSearchParams.toString()}`, { replace: true })
+    const updatedSearchParams = new URLSearchParams(searchParams);
+    updatedSearchParams.set("sort", e.target.value);
+    navigate(`/app/search?${updatedSearchParams.toString()}`, { replace: true });
   }
 
   return (
