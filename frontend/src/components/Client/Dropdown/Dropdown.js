@@ -1,7 +1,7 @@
 import Select from 'react-select'
 import { components } from 'react-select'
 
-const Dropdown = ({ prefix, options, handleOptions, defaultValue }) => {
+const Dropdown = ({ prefix=null, options, handleOptions, defaultValue }) => {
   const prefixLabel = {
     SingleValue: ({ children, ...props }) => {
       return (
