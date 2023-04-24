@@ -37,41 +37,40 @@ const SearchPage = () => {
   const sortOptions = [
     {
       value: "relevant",
-      display: 'Relevance'
+      label: 'Relevance'
     },
     {
       value: "lowestPrice",
-      display: 'Lowest Price'
+      label: 'Lowest Price'
     },
     {
       value: "highestPrice",
-      display: 'Highest Price'
+      label: 'Highest Price'
     },
     {
       value: "topReviewed",
-      display: 'Top Reviewed'
+      label: 'Top Reviewed'
     },
     {
       value: "mostRecent",
-      display: 'Most Recent'
+      label: 'Most Recent'
     }
   ]
 
   const handleOptions = (e) => {
-    setSortBy(e.target.value)
-
-    const updatedSearchParams = new URLSearchParams(searchParams);
-    updatedSearchParams.set("sort", e.target.value);
-    navigate(`/app/search?${updatedSearchParams.toString()}`, { replace: true });
+    setSortBy(e.value)
+    const updatedSearchParams = new URLSearchParams(searchParams)
+    updatedSearchParams.set("sort", e.value)
+    navigate(`/app/search?${updatedSearchParams.toString()}`, { replace: true })
   }
 
   return (
-    <div>
-      <div className="align-center-max flex-nowrap flex-col-reverse justify-between items-start sm:flex-row sm:items-center">
-        <p className="basis-2/6 text-start ml-10 sm:ml-3">Results for <span className="text-cyan-500 ml-1">"{searchTerm}"</span></p>
+    <div className="mx-4">
+      <div className="align-center-max mt-4 flex-nowrap flex-col-reverse justify-between items-start sm:flex-row sm:items-center">
+        <p className="basis-2/3 text-start ml-10 mt-3 sm:ml-0 sm:mt-0">Results for <span className="text-cyan-500 ml-1">"{searchTerm}"</span></p>
         <div className="align-center-max flex-nowrap justify-evenly sm:justify-end items-center">
           <SearchBar />
-          <Dropdown prefix={"Sort"} sortOptions={sortOptions} handleOptions={handleOptions} defaultValue={sortQuery} />
+          <Dropdown prefix={"Sort"} options={sortOptions} handleOptions={handleOptions} defaultValue={sortQuery} />
         </div>
       </div>
       <div className="align-center-max mt-4">
