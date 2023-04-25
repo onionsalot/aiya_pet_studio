@@ -19,8 +19,10 @@ class Product < ApplicationRecord
   has_many :product_tags, dependent: :destroy
   has_many :tags, through: :product_tags
 
-  multisearchable against: [:name, :description],
+  pg_search_scope :search_by_name_and_description,
+                  against: [:name, :description],
                   using: {
-                    tsearch: { prefix: true, any_word: true }
+                    tsearch: { prefix: true },
+                    trigram: {}
                   }
 end

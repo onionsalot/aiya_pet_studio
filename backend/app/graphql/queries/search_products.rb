@@ -9,18 +9,12 @@ module Queries
 
     def resolve(search_term:, sort_by: 'relevant')
       raise GraphQL::ExecutionError.new("Search term cannot be blank") if search_term.blank?
+      products = Product.search_by_name_and_description(search_term)
+      tags = Tag.search_by_name(search_term).flat_map { |t| t.products }
+      
+      results = (products + tags).uniq
 
-      results = PgSearch.multisearch(search_term)
-      products = 
-        results.flat_map  do |result|
-          if result.searchable_type == "Product"
-            result.searchable
-          elsif result.searchable_type == "Tag"
-            result.searchable.products
-          end
-        end.uniq
-
-      sort_products(products, sort_by)
+      sort_products(results, sort_by)
     rescue => e
       raise GraphQL::ExecutionError.new(e.message)
     end
