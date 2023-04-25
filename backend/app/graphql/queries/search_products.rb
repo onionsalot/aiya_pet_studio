@@ -10,9 +10,9 @@ module Queries
     def resolve(search_term:, sort_by: 'relevant')
       raise GraphQL::ExecutionError.new("Search term cannot be blank") if search_term.blank?
       products = Product.search_by_name_and_description(search_term)
-      tags = Tag.search_by_name(search_term).flat_map { |t| t.products }
+      tagged_products = Tag.search_by_name(search_term).flat_map { |t| t.products }
       
-      results = (products + tags).uniq
+      results = (products + tagged_products).uniq
 
       sort_products(results, sort_by)
     rescue => e
@@ -30,9 +30,7 @@ module Queries
       when 'price_desc'
         products.sort_by(&:price).reverse
       when 'top_reviewed'
-        products.left_joins(:reviews)
-                .group('products.id')
-                .order('AVG(reviews.rating) DESC')
+        products.sort_by { |product| -product.reviews.average(:rating).to_f }
       when 'recent'
         products.sort_by(&:created_at).reverse
       when 'name'
