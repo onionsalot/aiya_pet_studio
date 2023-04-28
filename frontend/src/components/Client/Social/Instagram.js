@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Instagram = () => {
   return (
-    <Link className="flex mb-2 mt-4" to="https://www.instagram.com/aiyapetstudio/">Follow us on <BsInstagram className="ml-2 text-xl" /></Link>
+    <Link className="flex mb-2 mt-4" to="https://www.instagram.com/aiyapetstudio/">Follow us <BsInstagram className="ml-2 text-xl" /></Link>
   );
 }
  
