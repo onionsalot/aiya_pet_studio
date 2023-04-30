@@ -36,23 +36,23 @@ const SearchPage = () => {
     },
     {
       value: "price_asc",
-      display: 'Lowest Price'
+      label: 'Lowest Price'
     },
     {
       value: "price_desc",
-      display: 'Highest Price'
+      label: 'Highest Price'
     },
     {
       value: "top_reviewed",
-      display: 'Top Reviewed'
+      label: 'Top Reviewed'
     },
     {
       value: "recent",
-      display: 'Most Recent'
+      label: 'Most Recent'
     },
     {
       value: "name",
-      display: 'Name'
+      label: 'Name'
     }
   ]
 
