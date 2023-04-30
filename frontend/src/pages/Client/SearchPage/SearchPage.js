@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { useSearchProducts } from "../../../hooks/product-hooks"
 import SearchSection from "../../../components/Client/SearchSection/SearchSection"
 import Dropdown from "../../../components/Client/Dropdown/Dropdown"
-import { useState, useEffect, useMemo } from "react"
+import { useMemo } from "react"
 import ProductCardSkeleton from "../../../components/Client/Skeletons/ProductCardSkeleton/ProductCardSkeleton"
 import SearchBar from "../../../components/Header/TitleBanner/SearchBar"
 
@@ -10,20 +10,15 @@ const SearchPage = () => {
   const searchParams = new URLSearchParams(useLocation().search)
   const searchTerm = searchParams.get("query")
   const sortQuery = searchParams.get("sort") || "relevant"
-  const { status, data: productData, error } = useSearchProducts({ searchTerm })
+  const { status, data: productData, error } = useSearchProducts({ searchTerm, sortBy: sortQuery })
   const foundProducts = productData?.data?.data?.searchProducts
-  const [sortBy, setSortBy] = useState(sortQuery)
   const navigate = useNavigate()
-
-  useEffect(() => {
-    setSortBy(sortQuery)
-  }, [sortQuery])
 
   const content = useMemo(
     () => {
       if (status === 'error') return <h1>{error.message || "Something went wrong!"}</h1>
       if (status === 'loading') {
-        return Array(16)
+        return Array(4)
           .fill()
           .map((_, i) => (
             <ProductCardSkeleton key={i} />
@@ -31,7 +26,7 @@ const SearchPage = () => {
           )
       }
       return <SearchSection foundProducts={foundProducts} />
-    }, [status]
+    }, [status, foundProducts]
   )
 
   const sortOptions = [
@@ -40,28 +35,31 @@ const SearchPage = () => {
       label: 'Relevance'
     },
     {
-      value: "lowestPrice",
+      value: "price_asc",
       label: 'Lowest Price'
     },
     {
-      value: "highestPrice",
+      value: "price_desc",
       label: 'Highest Price'
     },
     {
-      value: "topReviewed",
+      value: "top_reviewed",
       label: 'Top Reviewed'
     },
     {
-      value: "mostRecent",
+      value: "recent",
       label: 'Most Recent'
+    },
+    {
+      value: "name",
+      label: 'Name'
     }
   ]
 
   const handleOptions = (e) => {
-    setSortBy(e.value)
-    const updatedSearchParams = new URLSearchParams(searchParams)
-    updatedSearchParams.set("sort", e.value)
-    navigate(`/app/search?${updatedSearchParams.toString()}`, { replace: true })
+    const updatedSearchParams = new URLSearchParams(searchParams);
+    updatedSearchParams.set("sort", e.target.value);
+    navigate(`/app/search?${updatedSearchParams.toString()}`, { replace: true });
   }
 
   return (

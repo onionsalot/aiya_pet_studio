@@ -151,8 +151,8 @@ export const GET_POPULAR_PRODUCT = {
 
 export const GET_SEARCH_PRODUCTS = {
   query: `
-    query SearchProducts($searchTerm: String!) {
-      searchProducts(searchTerm: $searchTerm) {
+    query SearchProducts($searchTerm: String!, $sortBy: String!) {
+      searchProducts(searchTerm: $searchTerm, sortBy: $sortBy) {
         id
         name
         description
