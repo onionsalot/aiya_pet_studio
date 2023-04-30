@@ -35,18 +35,6 @@ const SearchPage = () => {
       label: 'Relevance'
     },
     {
-<<<<<<< HEAD
-      value: "lowestPrice",
-      label: 'Lowest Price'
-    },
-    {
-      value: "highestPrice",
-      label: 'Highest Price'
-    },
-    {
-      value: "topReviewed",
-      label: 'Top Reviewed'
-=======
       value: "price_asc",
       display: 'Lowest Price'
     },
@@ -57,7 +45,6 @@ const SearchPage = () => {
     {
       value: "top_reviewed",
       display: 'Top Reviewed'
->>>>>>> updates frontend search page query to match the backend and fixes some sort_by methods
     },
     {
       value: "recent",
