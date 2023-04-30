@@ -251,3 +251,20 @@ Linting rules here are not strict and we encourage you to write how you feel com
 
 ## - Ruby Linting
 TBD
+
+# How to use the headless authenticator
+You will need to get the ENV VARs from our private discord channel for the necessary authentication variables. Your `.env` should include `ETSY_API` and `ETSY_REDIRECT_URL`
+
+We're using [Pipedream](https://pipedream.com/workflows) as a way to tunnel the `ETSY_REDIRECT_URL`. (This will change to something more permanent later...)
+
+### How to set this up on your local
+- Make sure to migrate once this is in production
+- cd into backend folder and go to rails console
+- `BetsyWrapper.authorization_url` should give you a large URL. Click on that, and authorize your etsy account.
+- Once approved, you will be taken to a while page with a success message.
+- Copy the URL and look for the URL params called "code" and "state".
+- in rails console, enter those two params like so `params = { :code => 'CODE_HERE', :state => 'STATE_HERE' }`
+- Run `BetsyWrapper.request_access_token(params)`
+- Run `EtsyAccount.first` - You should see something like this 
+![image](https://user-images.githubusercontent.com/5695484/235364552-ba975139-9ae2-4abb-af29-774ff4ce6e31.png)
+- If so, you've successfully authenticated. This will be refreshed automatically if it expires.
