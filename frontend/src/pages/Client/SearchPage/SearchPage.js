@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { useSearchProducts } from "../../../hooks/product-hooks"
 import SearchSection from "../../../components/Client/SearchSection/SearchSection"
 import Dropdown from "../../../components/Client/Dropdown/Dropdown"
-import { useState, useEffect, useMemo } from "react"
+import { useMemo } from "react"
 import ProductCardSkeleton from "../../../components/Client/Skeletons/ProductCardSkeleton/ProductCardSkeleton"
 import SearchBar from "../../../components/Header/TitleBanner/SearchBar"
 
