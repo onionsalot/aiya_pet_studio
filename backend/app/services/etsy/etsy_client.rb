@@ -5,6 +5,7 @@ class Etsy::EtsyClient
 
   def initialize(shop_id:)
     # ID = 24762991
+    @shop_id = shop_id
     @shop = get_shop
     @product_count = @shop.listing_active_count
     @products = get_all_products
@@ -19,7 +20,7 @@ class Etsy::EtsyClient
   private
 
   def get_shop
-    BetsyWrapper::Shop.get_shop(shop_id)
+    BetsyWrapper::Shop.get_shop(@shop_id)
   end
 
   def get_all_products
