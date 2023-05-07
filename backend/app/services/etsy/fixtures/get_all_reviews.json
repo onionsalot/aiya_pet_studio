@@ -1,0 +1,30 @@
+[
+  {
+    "shop_id": 24762991,
+    "listing_id": 992438128,
+    "transaction_id": 2862857801,
+    "buyer_user_id": 97576023,
+    "rating": 5,
+    "review": "awesome as always will shop from again",
+    "language": "en",
+    "image_url_fullxfull": null,
+    "create_timestamp": 1650611888,
+    "created_timestamp": 1650611888,
+    "update_timestamp": 1650616497,
+    "updated_timestamp": 1650616497
+  },
+  {
+    "shop_id": 24762991,
+    "listing_id": 1046442281,
+    "transaction_id": 2862857799,
+    "buyer_user_id": 97576023,
+    "rating": 5,
+    "review": "awesome as always will shop from again",
+    "language": "en",
+    "image_url_fullxfull": null,
+    "create_timestamp": 1650611880,
+    "created_timestamp": 1650611880,
+    "update_timestamp": 1650616563,
+    "updated_timestamp": 1650616563
+  }
+]
